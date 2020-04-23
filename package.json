@@ -1,0 +1,26 @@
+{
+  "name": "tailwindcss-golden-ratio",
+  "version": "0.0.1",
+  "description": "A Tailwind CSS plugin to utilize the Golden Ratio in spacing, width, scale, borderWidth, and lineHeight",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truefrontier/tailwindcss-golden-ratio.git"
+  },
+  "keywords": [
+    "tailwindcss",
+    "golden ratio",
+    "spacing",
+    "scale",
+    "width",
+    "borderWidth",
+    "lineHeight",
+    "plugin"
+  ],
+  "author": "Kevin Kirchner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truefrontier/tailwindcss-golden-ratio/issues"
+  },
+  "homepage": "https://github.com/truefrontier/tailwindcss-golden-ratio#readme"
+}
