@@ -23,7 +23,17 @@ module.exports = plugin(
     theme: {
       extend: {
         scale: {
-          gr: gr,
+          'gr-1': 1 / gr / gr / gr / gr / gr, // 0.0901792
+          'gr-2': 1 / gr / gr / gr / gr, // 0.14591
+          'gr-3': 1 / gr / gr / gr, // 0.236083
+          'gr-4': 1 / gr / gr, // 0.381982
+          'gr-5': 1 / gr, // 0.618047
+          'gr-6': 1, // 1
+          'gr-7': 1 * gr, // 1.61803398875
+          'gr-8': 1 * gr * gr, // 2.61798
+          'gr-9': 1 * gr * gr * gr, // 4.23589
+          'gr-10': 1 * gr * gr * gr * gr, // 6.85367
+          'gr-11': 1 * gr * gr * gr * gr * gr, // 11.0892
         },
         width: (theme) => ({
           'gr-1': `${100 / gr / gr / gr / gr / gr}%`, // 9.01792%
@@ -61,6 +71,7 @@ module.exports = plugin(
         '9': `${spacer9}rem`, // 6.35371rem
         '10': `${spacer10}rem`, // 10.2803rem
         '11': `${spacer11}rem`, // 16.6335rem
+
         'half-1': `${spacer1 / 2}rem`, // 0.0676345rem
         'half-2': `${spacer2 / 2}rem`, // 0.1094325rem
         'half-3': `${spacer3 / 2}rem`, // 0.177062rem
@@ -72,6 +83,7 @@ module.exports = plugin(
         'half-9': `${spacer9 / 2}rem`, // 3.176855rem
         'half-10': `${spacer10 / 2}rem`, // 5.14015rem
         'half-11': `${spacer11 / 2}rem`, // 8.31675rem
+
         'double-1': `${spacer1 * 2}rem`, // 0.270538rem
         'double-2': `${spacer2 * 2}rem`, // 0.43773rem
         'double-3': `${spacer3 * 2}rem`, // 0.708248rem
@@ -92,6 +104,7 @@ module.exports = plugin(
         '3': `${spacer3}rem`, // 0.354124rem
         '4': `${spacer4}rem`, // 0.572973rem
         '5': `${spacer5}rem`, // 0.92707rem
+
         half: `${spacer1 / 2}rem`, // 0.0676345rem
         'half-2': `${spacer2 / 2}rem`, // 0.1094325rem
         'half-3': `${spacer3 / 2}rem`, // 0.177062rem
