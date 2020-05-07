@@ -35,6 +35,7 @@ module.exports = plugin(
           'gr-10': `${1 * gr * gr * gr * gr}`, // 6.85367
           'gr-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
         },
+
         width: (theme) => ({
           'gr-1': `${100 / gr / gr / gr / gr / gr}%`, // 9.01792%
           'gr-2': `${100 / gr / gr / gr / gr}%`, // 14.591%
@@ -55,6 +56,22 @@ module.exports = plugin(
           'gr-double-2': `${(100 / gr / gr / gr / gr) * 2}%`, // 29.182%
           'gr-double-3': `${(100 / gr / gr / gr) * 2}%`, // 47.2166%
           'gr-double-4': `${(100 / gr / gr) * 2}%`, // 76.3964%
+        }),
+
+        maxWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        maxHeight: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        minWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        minHeight: (theme) => ({
+          ...theme('spacing'),
         }),
       },
 
