@@ -1,23 +1,63 @@
 const plugin = require('tailwindcss/plugin');
 
 const gr = 1.61803398875; // The Golden Ratio
-const spacerBase = 1.5;
-
-const spacer1 = spacerBase / gr / gr / gr / gr / gr;
-const spacer2 = spacerBase / gr / gr / gr / gr;
-const spacer3 = spacerBase / gr / gr / gr;
-const spacer4 = spacerBase / gr / gr;
-const spacer5 = spacerBase / gr;
-const spacer6 = spacerBase;
-const spacer7 = spacerBase * gr;
-const spacer8 = spacerBase * gr * gr;
-const spacer9 = spacerBase * gr * gr * gr;
-const spacer10 = spacerBase * gr * gr * gr * gr;
-const spacer11 = spacerBase * gr * gr * gr * gr * gr;
 
 module.exports = plugin(
-  function({ theme }) {
-    // nothing needed here...
+  function({ addComponents, theme }) {
+    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
+    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
+
+    const spacer1 = spacerBase / gr / gr / gr / gr / gr;
+    const spacer2 = spacerBase / gr / gr / gr / gr;
+    const spacer3 = spacerBase / gr / gr / gr;
+    const spacer4 = spacerBase / gr / gr;
+    const spacer5 = spacerBase / gr;
+    const spacer6 = spacerBase;
+    const spacer7 = spacerBase * gr;
+    const spacer8 = spacerBase * gr * gr;
+    const spacer9 = spacerBase * gr * gr * gr;
+    const spacer10 = spacerBase * gr * gr * gr * gr;
+    const spacer11 = spacerBase * gr * gr * gr * gr * gr;
+
+    addComponents({
+      ':root': {
+        '--golden-ratio-1': `${spacer1}${spacerUnit}`, // 0.135269rem
+        '--golden-ratio-2': `${spacer2}${spacerUnit}`, // 0.218865rem
+        '--golden-ratio-3': `${spacer3}${spacerUnit}`, // 0.354124rem
+        '--golden-ratio-4': `${spacer4}${spacerUnit}`, // 0.572973rem
+        '--golden-ratio-5': `${spacer5}${spacerUnit}`, // 0.92707rem
+        '--golden-ratio-6': `${spacer6}${spacerUnit}`, // 1.5rem
+        '--golden-ratio-7': `${spacer7}${spacerUnit}`, // 2.427rem
+        '--golden-ratio-8': `${spacer8}${spacerUnit}`, // 3.92689rem
+        '--golden-ratio-9': `${spacer9}${spacerUnit}`, // 6.35371rem
+        '--golden-ratio-10': `${spacer10}${spacerUnit}`, // 10.2803rem
+        '--golden-ratio-11': `${spacer11}${spacerUnit}`, // 16.6335rem
+
+        '--golden-ratio-half-1': `${spacer1 / 2}${spacerUnit}`, // 0.0676345rem
+        '--golden-ratio-half-2': `${spacer2 / 2}${spacerUnit}`, // 0.1094325rem
+        '--golden-ratio-half-3': `${spacer3 / 2}${spacerUnit}`, // 0.177062rem
+        '--golden-ratio-half-4': `${spacer4 / 2}${spacerUnit}`, // 0.2864865rem
+        '--golden-ratio-half-5': `${spacer5 / 2}${spacerUnit}`, // 0.463535rem
+        '--golden-ratio-half-6': `${spacer6 / 2}${spacerUnit}`, // 0.75rem
+        '--golden-ratio-half-7': `${spacer7 / 2}${spacerUnit}`, // 1.2135rem
+        '--golden-ratio-half-8': `${spacer8 / 2}${spacerUnit}`, // 1.963445rem
+        '--golden-ratio-half-9': `${spacer9 / 2}${spacerUnit}`, // 3.176855rem
+        '--golden-ratio-half-10': `${spacer10 / 2}${spacerUnit}`, // 5.14015rem
+        '--golden-ratio-half-11': `${spacer11 / 2}${spacerUnit}`, // 8.31675rem
+
+        '--golden-ratio-double-1': `${spacer1 * 2}${spacerUnit}`, // 0.270538rem
+        '--golden-ratio-double-2': `${spacer2 * 2}${spacerUnit}`, // 0.43773rem
+        '--golden-ratio-double-3': `${spacer3 * 2}${spacerUnit}`, // 0.708248rem
+        '--golden-ratio-double-4': `${spacer4 * 2}${spacerUnit}`, // 1.145946rem
+        '--golden-ratio-double-5': `${spacer5 * 2}${spacerUnit}`, // 1.85414rem
+        '--golden-ratio-double-6': `${spacer6 * 2}${spacerUnit}`, // 3rem
+        '--golden-ratio-double-7': `${spacer7 * 2}${spacerUnit}`, // 4.854rem
+        '--golden-ratio-double-8': `${spacer8 * 2}${spacerUnit}`, // 7.85378rem
+        '--golden-ratio-double-9': `${spacer9 * 2}${spacerUnit}`, // 12.70742rem
+        '--golden-ratio-double-10': `${spacer10 * 2}${spacerUnit}`, // 20.5606rem
+        '--golden-ratio-double-11': `${spacer11 * 2}${spacerUnit}`, // 33.267rem
+      },
+    });
   },
   {
     theme: {
@@ -77,71 +117,71 @@ module.exports = plugin(
 
       spacing: {
         '0': '0',
-        '1': `${spacer1}rem`, // 0.135269rem
-        '2': `${spacer2}rem`, // 0.218865rem
-        '3': `${spacer3}rem`, // 0.354124rem
-        '4': `${spacer4}rem`, // 0.572973rem
-        '5': `${spacer5}rem`, // 0.92707rem
-        '6': `${spacer6}rem`, // 1.5rem
-        '7': `${spacer7}rem`, // 2.427rem
-        '8': `${spacer8}rem`, // 3.92689rem
-        '9': `${spacer9}rem`, // 6.35371rem
-        '10': `${spacer10}rem`, // 10.2803rem
-        '11': `${spacer11}rem`, // 16.6335rem
+        '1': 'var(--golden-ratio-1)',
+        '2': 'var(--golden-ratio-2)',
+        '3': 'var(--golden-ratio-3)',
+        '4': 'var(--golden-ratio-4)',
+        '5': 'var(--golden-ratio-5)',
+        '6': 'var(--golden-ratio-6)',
+        '7': 'var(--golden-ratio-7)',
+        '8': 'var(--golden-ratio-8)',
+        '9': 'var(--golden-ratio-9)',
+        '10': 'var(--golden-ratio-10)',
+        '11': 'var(--golden-ratio-11)',
 
-        'half-1': `${spacer1 / 2}rem`, // 0.0676345rem
-        'half-2': `${spacer2 / 2}rem`, // 0.1094325rem
-        'half-3': `${spacer3 / 2}rem`, // 0.177062rem
-        'half-4': `${spacer4 / 2}rem`, // 0.2864865rem
-        'half-5': `${spacer5 / 2}rem`, // 0.463535rem
-        'half-6': `${spacer6 / 2}rem`, // 0.75rem
-        'half-7': `${spacer7 / 2}rem`, // 1.2135rem
-        'half-8': `${spacer8 / 2}rem`, // 1.963445rem
-        'half-9': `${spacer9 / 2}rem`, // 3.176855rem
-        'half-10': `${spacer10 / 2}rem`, // 5.14015rem
-        'half-11': `${spacer11 / 2}rem`, // 8.31675rem
+        'half-1': 'var(--golden-ratio-half-1)',
+        'half-2': 'var(--golden-ratio-half-2)',
+        'half-3': 'var(--golden-ratio-half-3)',
+        'half-4': 'var(--golden-ratio-half-4)',
+        'half-5': 'var(--golden-ratio-half-5)',
+        'half-6': 'var(--golden-ratio-half-6)',
+        'half-7': 'var(--golden-ratio-half-7)',
+        'half-8': 'var(--golden-ratio-half-8)',
+        'half-9': 'var(--golden-ratio-half-9)',
+        'half-10': 'var(--golden-ratio-half-10)',
+        'half-11': 'var(--golden-ratio-half-11)',
 
-        'double-1': `${spacer1 * 2}rem`, // 0.270538rem
-        'double-2': `${spacer2 * 2}rem`, // 0.43773rem
-        'double-3': `${spacer3 * 2}rem`, // 0.708248rem
-        'double-4': `${spacer4 * 2}rem`, // 1.145946rem
-        'double-5': `${spacer5 * 2}rem`, // 1.85414rem
-        'double-6': `${spacer6 * 2}rem`, // 3rem
-        'double-7': `${spacer7 * 2}rem`, // 4.854rem
-        'double-8': `${spacer8 * 2}rem`, // 7.85378rem
-        'double-9': `${spacer9 * 2}rem`, // 12.70742rem
-        'double-10': `${spacer10 * 2}rem`, // 20.5606rem
-        'double-11': `${spacer11 * 2}rem`, // 33.267rem
+        'double-1': 'var(--golden-ratio-double-1)',
+        'double-2': 'var(--golden-ratio-double-2)',
+        'double-3': 'var(--golden-ratio-double-3)',
+        'double-4': 'var(--golden-ratio-double-4)',
+        'double-5': 'var(--golden-ratio-double-5)',
+        'double-6': 'var(--golden-ratio-double-6)',
+        'double-7': 'var(--golden-ratio-double-7)',
+        'double-8': 'var(--golden-ratio-double-8)',
+        'double-9': 'var(--golden-ratio-double-9)',
+        'double-10': 'var(--golden-ratio-double-10)',
+        'double-11': 'var(--golden-ratio-double-11)',
       },
 
       borderWidth: {
-        default: `${spacer1}rem`, // 0.135269rem
+        default: 'var(--golden-ratio-1)',
         '0': '0',
-        '2': `${spacer2}rem`, // 0.218865rem
-        '3': `${spacer3}rem`, // 0.354124rem
-        '4': `${spacer4}rem`, // 0.572973rem
-        '5': `${spacer5}rem`, // 0.92707rem
+        '2': 'var(--golden-ratio-2)',
+        '3': 'var(--golden-ratio-3)',
+        '4': 'var(--golden-ratio-4)',
+        '5': 'var(--golden-ratio-5)',
 
-        half: `${spacer1 / 2}rem`, // 0.0676345rem
-        'half-2': `${spacer2 / 2}rem`, // 0.1094325rem
-        'half-3': `${spacer3 / 2}rem`, // 0.177062rem
-        'half-4': `${spacer4 / 2}rem`, // 0.2864865rem
-        'half-5': `${spacer5 / 2}rem`, // 0.463535rem
+        half: 'var(--golden-ratio-half-1)',
+        'half-2': 'var(--golden-ratio-half-2)',
+        'half-3': 'var(--golden-ratio-half-3)',
+        'half-4': 'var(--golden-ratio-half-4)',
+        'half-5': 'var(--golden-ratio-half-5)',
       },
 
       lineHeight: {
         none: '1',
-        '1': `${spacer1}rem`, // 0.135269rem
-        '2': `${spacer2}rem`, // 0.218865rem
-        '3': `${spacer3}rem`, // 0.354124rem
-        '4': `${spacer4}rem`, // 0.572973rem
-        '5': `${spacer5}rem`, // 0.92707rem
-        '6': `${spacer6}rem`, // 1.5rem
-        '7': `${spacer7}rem`, // 2.427rem
-        '8': `${spacer8}rem`, // 3.92689rem
-        '9': `${spacer9}rem`, // 6.35371rem
-        '10': `${spacer10}rem`, // 10.2803rem
-        '11': `${spacer11}rem`, // 16.6335rem
+        '1': 'var(--golden-ratio-1)',
+        '2': 'var(--golden-ratio-2)',
+        '3': 'var(--golden-ratio-3)',
+        '4': 'var(--golden-ratio-4)',
+        '5': 'var(--golden-ratio-5)',
+        '6': 'var(--golden-ratio-6)',
+        '7': 'var(--golden-ratio-7)',
+        '8': 'var(--golden-ratio-8)',
+        '9': 'var(--golden-ratio-9)',
+        '10': 'var(--golden-ratio-10)',
+        '11': 'var(--golden-ratio-11)',
       },
     },
   },
