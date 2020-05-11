@@ -21,6 +21,8 @@ module.exports = plugin(
 
     addComponents({
       ':root': {
+        '--gr': `${gr}`,
+
         '--golden-ratio-1': `${spacer1}${spacerUnit}`, // 0.135269rem
         '--golden-ratio-2': `${spacer2}${spacerUnit}`, // 0.218865rem
         '--golden-ratio-3': `${spacer3}${spacerUnit}`, // 0.354124rem
@@ -161,12 +163,36 @@ module.exports = plugin(
         '3': 'var(--golden-ratio-3)',
         '4': 'var(--golden-ratio-4)',
         '5': 'var(--golden-ratio-5)',
+        '6': 'var(--golden-ratio-6)',
+        '7': 'var(--golden-ratio-7)',
+        '8': 'var(--golden-ratio-8)',
+        '9': 'var(--golden-ratio-9)',
+        '10': 'var(--golden-ratio-10)',
+        '11': 'var(--golden-ratio-11)',
 
         half: 'var(--golden-ratio-half-1)',
         'half-2': 'var(--golden-ratio-half-2)',
         'half-3': 'var(--golden-ratio-half-3)',
         'half-4': 'var(--golden-ratio-half-4)',
         'half-5': 'var(--golden-ratio-half-5)',
+        'half-6': 'var(--golden-ratio-half-6)',
+        'half-7': 'var(--golden-ratio-half-7)',
+        'half-8': 'var(--golden-ratio-half-8)',
+        'half-9': 'var(--golden-ratio-half-9)',
+        'half-10': 'var(--golden-ratio-half-10)',
+        'half-11': 'var(--golden-ratio-half-11)',
+
+        double: 'var(--golden-ratio-double-1)',
+        'double-2': 'var(--golden-ratio-double-2)',
+        'double-3': 'var(--golden-ratio-double-3)',
+        'double-4': 'var(--golden-ratio-double-4)',
+        'double-5': 'var(--golden-ratio-double-5)',
+        'double-6': 'var(--golden-ratio-double-6)',
+        'double-7': 'var(--golden-ratio-double-7)',
+        'double-8': 'var(--golden-ratio-double-8)',
+        'double-9': 'var(--golden-ratio-double-9)',
+        'double-10': 'var(--golden-ratio-double-10)',
+        'double-11': 'var(--golden-ratio-double-11)',
       },
 
       lineHeight: {
