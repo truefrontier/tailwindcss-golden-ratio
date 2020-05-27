@@ -21,6 +21,8 @@ module.exports = plugin(
 
     addComponents({
       ':root': {
+        // '--gr-base': `${spacerBase}`,
+        // '--gr-unit': `1${spacerUnit}`,
         '--gr': `${gr}`,
 
         '--golden-ratio-1': `${spacer1}${spacerUnit}`, // 0.135269rem
@@ -154,6 +156,42 @@ module.exports = plugin(
         'double-9': 'var(--golden-ratio-double-9)',
         'double-10': 'var(--golden-ratio-double-10)',
         'double-11': 'var(--golden-ratio-double-11)',
+
+        'gr-1': `${1 / gr / gr / gr / gr / gr}`, // 0.0901792
+        'gr-2': `${1 / gr / gr / gr / gr}`, // 0.14591
+        'gr-3': `${1 / gr / gr / gr}`, // 0.236083
+        'gr-4': `${1 / gr / gr}`, // 0.381982
+        'gr-5': `${1 / gr}`, // 0.618047
+        'gr-6': `${1}`, // 1
+        'gr-7': `${1 * gr}`, // 1.61803398875
+        'gr-8': `${1 * gr * gr}`, // 2.61798
+        'gr-9': `${1 * gr * gr * gr}`, // 4.23589
+        'gr-10': `${1 * gr * gr * gr * gr}`, // 6.85367
+        'gr-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
+
+        'gr-half-1': `${1 / gr / gr / gr / gr / gr / 2}`,
+        'gr-half-2': `${1 / gr / gr / gr / gr / 2}`,
+        'gr-half-3': `${1 / gr / gr / gr / 2}`,
+        'gr-half-4': `${1 / gr / gr / 2}`,
+        'gr-half-5': `${1 / gr / 2}`,
+        'gr-half-6': `${1 / 2}`,
+        'gr-half-7': `${(1 * gr) / 2}`,
+        'gr-half-8': `${(1 * gr * gr) / 2}`,
+        'gr-half-9': `${(1 * gr * gr * gr) / 2}`,
+        'gr-half-10': `${(1 * gr * gr * gr * gr) / 2}`,
+        'gr-half-11': `${(1 * gr * gr * gr * gr * gr) / 2}`,
+
+        'gr-double-1': `${(1 / gr / gr / gr / gr / gr) * 2}`,
+        'gr-double-2': `${(1 / gr / gr / gr / gr) * 2}`,
+        'gr-double-3': `${(1 / gr / gr / gr) * 2}`,
+        'gr-double-4': `${(1 / gr / gr) * 2}`,
+        'gr-double-5': `${(1 / gr) * 2}`,
+        'gr-double-6': `${1 * 2}`,
+        'gr-double-7': `${1 * gr * 2}`,
+        'gr-double-8': `${1 * gr * gr * 2}`,
+        'gr-double-9': `${1 * gr * gr * gr * 2}`,
+        'gr-double-10': `${1 * gr * gr * gr * gr * 2}`,
+        'gr-double-11': `${1 * gr * gr * gr * gr * gr * 2}`,
       },
 
       borderWidth: {
