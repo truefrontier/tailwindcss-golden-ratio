@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin');
 const gr = 1.61803398875; // The Golden Ratio
 
 module.exports = plugin(
-  function({ addComponents, theme }) {
+  function ({ addComponents, theme }) {
     const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
     const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
 
@@ -67,39 +67,39 @@ module.exports = plugin(
     theme: {
       extend: {
         scale: {
-          'gr-1': `${1 / gr / gr / gr / gr / gr}`, // 0.0901792
-          'gr-2': `${1 / gr / gr / gr / gr}`, // 0.14591
-          'gr-3': `${1 / gr / gr / gr}`, // 0.236083
-          'gr-4': `${1 / gr / gr}`, // 0.381982
-          'gr-5': `${1 / gr}`, // 0.618047
-          'gr-6': `${1}`, // 1
-          'gr-7': `${1 * gr}`, // 1.61803398875
-          'gr-8': `${1 * gr * gr}`, // 2.61798
-          'gr-9': `${1 * gr * gr * gr}`, // 4.23589
-          'gr-10': `${1 * gr * gr * gr * gr}`, // 6.85367
-          'gr-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
+          'grp-1': `${1 / gr / gr / gr / gr / gr}`, // 0.0901792
+          'grp-2': `${1 / gr / gr / gr / gr}`, // 0.14591
+          'grp-3': `${1 / gr / gr / gr}`, // 0.236083
+          'grp-4': `${1 / gr / gr}`, // 0.381982
+          'grp-5': `${1 / gr}`, // 0.618047
+          'grp-6': `${1}`, // 1
+          'grp-7': `${1 * gr}`, // 1.61803398875
+          'grp-8': `${1 * gr * gr}`, // 2.61798
+          'grp-9': `${1 * gr * gr * gr}`, // 4.23589
+          'grp-10': `${1 * gr * gr * gr * gr}`, // 6.85367
+          'grp-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
         },
 
         width: (theme) => ({
-          'gr-1': `${100 / gr / gr / gr / gr / gr}%`, // 9.01792%
-          'gr-2': `${100 / gr / gr / gr / gr}%`, // 14.591%
-          'gr-3': `${100 / gr / gr / gr}%`, // 23.6083%
-          'gr-4': `${100 / gr / gr}%`, // 38.1982%
-          'gr-5': `${100 / gr}%`, // 61.8047%
-          'gr-6': `${100}%`, // 100%
+          'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 9.01792%
+          'grp-2': `${100 / gr / gr / gr / gr}%`, // 14.591%
+          'grp-3': `${100 / gr / gr / gr}%`, // 23.6083%
+          'grp-4': `${100 / gr / gr}%`, // 38.1982%
+          'grp-5': `${100 / gr}%`, // 61.8047%
+          'grp-6': `${100}%`, // 100%
 
-          'gr-half-1': `${100 / gr / gr / gr / gr / gr / 2}%`, // 4.50896%
-          'gr-half-2': `${100 / gr / gr / gr / gr / 2}%`, // 7.2955%
-          'gr-half-3': `${100 / gr / gr / gr / 2}%`, // 11.80415%
-          'gr-half-4': `${100 / gr / gr / 2}%`, // 19.0991%
-          'gr-half-5': `${100 / gr / 2}%`, // 30.90235%
-          'gr-half-6': `${100 / 2}%`, // 50%
-          'gr-half-7': `${(100 * gr) / 2}%`, // 80.9%
+          'grp-half-1': `${100 / gr / gr / gr / gr / gr / 2}%`, // 4.50896%
+          'grp-half-2': `${100 / gr / gr / gr / gr / 2}%`, // 7.2955%
+          'grp-half-3': `${100 / gr / gr / gr / 2}%`, // 11.80415%
+          'grp-half-4': `${100 / gr / gr / 2}%`, // 19.0991%
+          'grp-half-5': `${100 / gr / 2}%`, // 30.90235%
+          'grp-half-6': `${100 / 2}%`, // 50%
+          'grp-half-7': `${(100 * gr) / 2}%`, // 80.9%
 
-          'gr-double-1': `${(100 / gr / gr / gr / gr / gr) * 2}%`, // 18.03584%
-          'gr-double-2': `${(100 / gr / gr / gr / gr) * 2}%`, // 29.182%
-          'gr-double-3': `${(100 / gr / gr / gr) * 2}%`, // 47.2166%
-          'gr-double-4': `${(100 / gr / gr) * 2}%`, // 76.3964%
+          'grp-double-1': `${(100 / gr / gr / gr / gr / gr) * 2}%`, // 18.03584%
+          'grp-double-2': `${(100 / gr / gr / gr / gr) * 2}%`, // 29.182%
+          'grp-double-3': `${(100 / gr / gr / gr) * 2}%`, // 47.2166%
+          'grp-double-4': `${(100 / gr / gr) * 2}%`, // 76.3964%
         }),
 
         maxWidth: (theme) => ({
@@ -119,131 +119,129 @@ module.exports = plugin(
         }),
 
         spacing: {
-          '0': '0',
-          '1': 'var(--golden-ratio-1)',
-          '2': 'var(--golden-ratio-2)',
-          '3': 'var(--golden-ratio-3)',
-          '4': 'var(--golden-ratio-4)',
-          '5': 'var(--golden-ratio-5)',
-          '6': 'var(--golden-ratio-6)',
-          '7': 'var(--golden-ratio-7)',
-          '8': 'var(--golden-ratio-8)',
-          '9': 'var(--golden-ratio-9)',
-          '10': 'var(--golden-ratio-10)',
-          '11': 'var(--golden-ratio-11)',
+          'gr-1': 'var(--golden-ratio-1)',
+          'gr-2': 'var(--golden-ratio-2)',
+          'gr-3': 'var(--golden-ratio-3)',
+          'gr-4': 'var(--golden-ratio-4)',
+          'gr-5': 'var(--golden-ratio-5)',
+          'gr-6': 'var(--golden-ratio-6)',
+          'gr-7': 'var(--golden-ratio-7)',
+          'gr-8': 'var(--golden-ratio-8)',
+          'gr-9': 'var(--golden-ratio-9)',
+          'gr-10': 'var(--golden-ratio-10)',
+          'gr-11': 'var(--golden-ratio-11)',
 
-          'half-1': 'var(--golden-ratio-half-1)',
-          'half-2': 'var(--golden-ratio-half-2)',
-          'half-3': 'var(--golden-ratio-half-3)',
-          'half-4': 'var(--golden-ratio-half-4)',
-          'half-5': 'var(--golden-ratio-half-5)',
-          'half-6': 'var(--golden-ratio-half-6)',
-          'half-7': 'var(--golden-ratio-half-7)',
-          'half-8': 'var(--golden-ratio-half-8)',
-          'half-9': 'var(--golden-ratio-half-9)',
-          'half-10': 'var(--golden-ratio-half-10)',
-          'half-11': 'var(--golden-ratio-half-11)',
+          'gr-half-1': 'var(--golden-ratio-half-1)',
+          'gr-half-2': 'var(--golden-ratio-half-2)',
+          'gr-half-3': 'var(--golden-ratio-half-3)',
+          'gr-half-4': 'var(--golden-ratio-half-4)',
+          'gr-half-5': 'var(--golden-ratio-half-5)',
+          'gr-half-6': 'var(--golden-ratio-half-6)',
+          'gr-half-7': 'var(--golden-ratio-half-7)',
+          'gr-half-8': 'var(--golden-ratio-half-8)',
+          'gr-half-9': 'var(--golden-ratio-half-9)',
+          'gr-half-10': 'var(--golden-ratio-half-10)',
+          'gr-half-11': 'var(--golden-ratio-half-11)',
 
-          'double-1': 'var(--golden-ratio-double-1)',
-          'double-2': 'var(--golden-ratio-double-2)',
-          'double-3': 'var(--golden-ratio-double-3)',
-          'double-4': 'var(--golden-ratio-double-4)',
-          'double-5': 'var(--golden-ratio-double-5)',
-          'double-6': 'var(--golden-ratio-double-6)',
-          'double-7': 'var(--golden-ratio-double-7)',
-          'double-8': 'var(--golden-ratio-double-8)',
-          'double-9': 'var(--golden-ratio-double-9)',
-          'double-10': 'var(--golden-ratio-double-10)',
-          'double-11': 'var(--golden-ratio-double-11)',
+          'gr-double-1': 'var(--golden-ratio-double-1)',
+          'gr-double-2': 'var(--golden-ratio-double-2)',
+          'gr-double-3': 'var(--golden-ratio-double-3)',
+          'gr-double-4': 'var(--golden-ratio-double-4)',
+          'gr-double-5': 'var(--golden-ratio-double-5)',
+          'gr-double-6': 'var(--golden-ratio-double-6)',
+          'gr-double-7': 'var(--golden-ratio-double-7)',
+          'gr-double-8': 'var(--golden-ratio-double-8)',
+          'gr-double-9': 'var(--golden-ratio-double-9)',
+          'gr-double-10': 'var(--golden-ratio-double-10)',
+          'gr-double-11': 'var(--golden-ratio-double-11)',
 
-          'gr-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
-          'gr-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
-          'gr-3': `${100 / gr / gr / gr}%`, // 0.236083
-          'gr-4': `${100 / gr / gr}%`, // 0.381982
-          'gr-5': `${100 / gr}%`, // 0.618047
-          'gr-6': `${100}%`, // 1
-          'gr-7': `${100 * gr}%`, // 1.61803398875
-          'gr-8': `${100 * gr * gr}%`, // 2.61798
-          'gr-9': `${100 * gr * gr * gr}%`, // 4.23589
-          'gr-10': `${100 * gr * gr * gr * gr}%`, // 6.85367
-          'gr-11': `${100 * gr * gr * gr * gr * gr}%`, // 11.0892
+          'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
+          'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
+          'grp-3': `${100 / gr / gr / gr}%`, // 0.236083
+          'grp-4': `${100 / gr / gr}%`, // 0.381982
+          'grp-5': `${100 / gr}%`, // 0.618047
+          'grp-6': `${100}%`, // 1
+          'grp-7': `${100 * gr}%`, // 1.61803398875
+          'grp-8': `${100 * gr * gr}%`, // 2.61798
+          'grp-9': `${100 * gr * gr * gr}%`, // 4.23589
+          'grp-10': `${100 * gr * gr * gr * gr}%`, // 6.85367
+          'grp-11': `${100 * gr * gr * gr * gr * gr}%`, // 11.0892
 
-          'gr-half-1': `${50 / gr / gr / gr / gr / gr}%`,
-          'gr-half-2': `${50 / gr / gr / gr / gr}%`,
-          'gr-half-3': `${50 / gr / gr / gr}%`,
-          'gr-half-4': `${50 / gr / gr}%`,
-          'gr-half-5': `${50 / gr}%`,
-          'gr-half-6': `${50}%`,
-          'gr-half-7': `${50 * gr}%`,
-          'gr-half-8': `${50 * gr * gr}%`,
-          'gr-half-9': `${50 * gr * gr * gr}%`,
-          'gr-half-10': `${50 * gr * gr * gr * gr}%`,
-          'gr-half-11': `${50 * gr * gr * gr * gr * gr}%`,
+          'grp-half-1': `${50 / gr / gr / gr / gr / gr}%`,
+          'grp-half-2': `${50 / gr / gr / gr / gr}%`,
+          'grp-half-3': `${50 / gr / gr / gr}%`,
+          'grp-half-4': `${50 / gr / gr}%`,
+          'grp-half-5': `${50 / gr}%`,
+          'grp-half-6': `${50}%`,
+          'grp-half-7': `${50 * gr}%`,
+          'grp-half-8': `${50 * gr * gr}%`,
+          'grp-half-9': `${50 * gr * gr * gr}%`,
+          'grp-half-10': `${50 * gr * gr * gr * gr}%`,
+          'grp-half-11': `${50 * gr * gr * gr * gr * gr}%`,
 
-          'gr-double-1': `${200 / gr / gr / gr / gr / gr}%`,
-          'gr-double-2': `${200 / gr / gr / gr / gr}%`,
-          'gr-double-3': `${200 / gr / gr / gr}%`,
-          'gr-double-4': `${200 / gr / gr}%`,
-          'gr-double-5': `${200 / gr}%`,
-          'gr-double-6': `${200}%`,
-          'gr-double-7': `${200 * gr}%`,
-          'gr-double-8': `${200 * gr * gr}%`,
-          'gr-double-9': `${200 * gr * gr * gr}%`,
-          'gr-double-10': `${200 * gr * gr * gr * gr}%`,
-          'gr-double-11': `${200 * gr * gr * gr * gr * gr}%`,
+          'grp-double-1': `${200 / gr / gr / gr / gr / gr}%`,
+          'grp-double-2': `${200 / gr / gr / gr / gr}%`,
+          'grp-double-3': `${200 / gr / gr / gr}%`,
+          'grp-double-4': `${200 / gr / gr}%`,
+          'grp-double-5': `${200 / gr}%`,
+          'grp-double-6': `${200}%`,
+          'grp-double-7': `${200 * gr}%`,
+          'grp-double-8': `${200 * gr * gr}%`,
+          'grp-double-9': `${200 * gr * gr * gr}%`,
+          'grp-double-10': `${200 * gr * gr * gr * gr}%`,
+          'grp-double-11': `${200 * gr * gr * gr * gr * gr}%`,
         },
 
         borderWidth: {
           default: 'var(--golden-ratio-1)',
-          '0': '0',
-          '2': 'var(--golden-ratio-2)',
-          '3': 'var(--golden-ratio-3)',
-          '4': 'var(--golden-ratio-4)',
-          '5': 'var(--golden-ratio-5)',
-          '6': 'var(--golden-ratio-6)',
-          '7': 'var(--golden-ratio-7)',
-          '8': 'var(--golden-ratio-8)',
-          '9': 'var(--golden-ratio-9)',
-          '10': 'var(--golden-ratio-10)',
-          '11': 'var(--golden-ratio-11)',
+          'gr-2': 'var(--golden-ratio-2)',
+          'gr-3': 'var(--golden-ratio-3)',
+          'gr-4': 'var(--golden-ratio-4)',
+          'gr-5': 'var(--golden-ratio-5)',
+          'gr-6': 'var(--golden-ratio-6)',
+          'gr-7': 'var(--golden-ratio-7)',
+          'gr-8': 'var(--golden-ratio-8)',
+          'gr-9': 'var(--golden-ratio-9)',
+          'gr-10': 'var(--golden-ratio-10)',
+          'gr-11': 'var(--golden-ratio-11)',
 
-          half: 'var(--golden-ratio-half-1)',
-          'half-2': 'var(--golden-ratio-half-2)',
-          'half-3': 'var(--golden-ratio-half-3)',
-          'half-4': 'var(--golden-ratio-half-4)',
-          'half-5': 'var(--golden-ratio-half-5)',
-          'half-6': 'var(--golden-ratio-half-6)',
-          'half-7': 'var(--golden-ratio-half-7)',
-          'half-8': 'var(--golden-ratio-half-8)',
-          'half-9': 'var(--golden-ratio-half-9)',
-          'half-10': 'var(--golden-ratio-half-10)',
-          'half-11': 'var(--golden-ratio-half-11)',
+          'gr-half-1': 'var(--golden-ratio-half-1)',
+          'gr-half-2': 'var(--golden-ratio-half-2)',
+          'gr-half-3': 'var(--golden-ratio-half-3)',
+          'gr-half-4': 'var(--golden-ratio-half-4)',
+          'gr-half-5': 'var(--golden-ratio-half-5)',
+          'gr-half-6': 'var(--golden-ratio-half-6)',
+          'gr-half-7': 'var(--golden-ratio-half-7)',
+          'gr-half-8': 'var(--golden-ratio-half-8)',
+          'gr-half-9': 'var(--golden-ratio-half-9)',
+          'gr-half-10': 'var(--golden-ratio-half-10)',
+          'gr-half-11': 'var(--golden-ratio-half-11)',
 
-          double: 'var(--golden-ratio-double-1)',
-          'double-2': 'var(--golden-ratio-double-2)',
-          'double-3': 'var(--golden-ratio-double-3)',
-          'double-4': 'var(--golden-ratio-double-4)',
-          'double-5': 'var(--golden-ratio-double-5)',
-          'double-6': 'var(--golden-ratio-double-6)',
-          'double-7': 'var(--golden-ratio-double-7)',
-          'double-8': 'var(--golden-ratio-double-8)',
-          'double-9': 'var(--golden-ratio-double-9)',
-          'double-10': 'var(--golden-ratio-double-10)',
-          'double-11': 'var(--golden-ratio-double-11)',
+          'gr-double-1': 'var(--golden-ratio-double-1)',
+          'gr-double-2': 'var(--golden-ratio-double-2)',
+          'gr-double-3': 'var(--golden-ratio-double-3)',
+          'gr-double-4': 'var(--golden-ratio-double-4)',
+          'gr-double-5': 'var(--golden-ratio-double-5)',
+          'gr-double-6': 'var(--golden-ratio-double-6)',
+          'gr-double-7': 'var(--golden-ratio-double-7)',
+          'gr-double-8': 'var(--golden-ratio-double-8)',
+          'gr-double-9': 'var(--golden-ratio-double-9)',
+          'gr-double-10': 'var(--golden-ratio-double-10)',
+          'gr-double-11': 'var(--golden-ratio-double-11)',
         },
 
         lineHeight: {
-          '1': 'var(--golden-ratio-1)',
-          '2': 'var(--golden-ratio-2)',
-          '3': 'var(--golden-ratio-3)',
-          '4': 'var(--golden-ratio-4)',
-          '5': 'var(--golden-ratio-5)',
-          '6': 'var(--golden-ratio-6)',
-          '7': 'var(--golden-ratio-7)',
-          '8': 'var(--golden-ratio-8)',
-          '9': 'var(--golden-ratio-9)',
-          '10': 'var(--golden-ratio-10)',
-          '11': 'var(--golden-ratio-11)',
+          'gr-1': 'var(--golden-ratio-1)',
+          'gr-2': 'var(--golden-ratio-2)',
+          'gr-3': 'var(--golden-ratio-3)',
+          'gr-4': 'var(--golden-ratio-4)',
+          'gr-5': 'var(--golden-ratio-5)',
+          'gr-6': 'var(--golden-ratio-6)',
+          'gr-7': 'var(--golden-ratio-7)',
+          'gr-8': 'var(--golden-ratio-8)',
+          'gr-9': 'var(--golden-ratio-9)',
+          'gr-10': 'var(--golden-ratio-10)',
+          'gr-11': 'var(--golden-ratio-11)',
         },
       },
     },
