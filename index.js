@@ -6,6 +6,7 @@ module.exports = plugin(
   function ({ addComponents, theme }) {
     const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
     const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
+    const useCssVars = theme('goldenRatio.useCssVars', true);
 
     const spacer1 = spacerBase / gr / gr / gr / gr / gr;
     const spacer2 = spacerBase / gr / gr / gr / gr;
@@ -19,47 +20,83 @@ module.exports = plugin(
     const spacer10 = spacerBase * gr * gr * gr * gr;
     const spacer11 = spacerBase * gr * gr * gr * gr * gr;
 
+    // NOTE: commented values are only valid if spacerBase is 1.5 and spacerUnit is rem
+    const gr1 = `${spacer1}${spacerUnit}`; // 0.135269rem
+    const gr2 = `${spacer2}${spacerUnit}`; // 0.218865rem
+    const gr3 = `${spacer3}${spacerUnit}`; // 0.354124rem
+    const gr4 = `${spacer4}${spacerUnit}`; // 0.572973rem
+    const gr5 = `${spacer5}${spacerUnit}`; // 0.92707rem
+    const gr6 = `${spacer6}${spacerUnit}`; // 1.5rem
+    const gr7 = `${spacer7}${spacerUnit}`; // 2.427rem
+    const gr8 = `${spacer8}${spacerUnit}`; // 3.92689rem
+    const gr9 = `${spacer9}${spacerUnit}`; // 6.35371rem
+    const gr10 = `${spacer10}${spacerUnit}`; // 10.2803rem
+    const gr11 = `${spacer11}${spacerUnit}`; // 16.6335rem
+    const grHalf1 = `${spacer1 / 2}${spacerUnit}`; // 0.0676345rem
+    const grHalf2 = `${spacer2 / 2}${spacerUnit}`; // 0.1094325rem
+    const grHalf3 = `${spacer3 / 2}${spacerUnit}`; // 0.177062rem
+    const grHalf4 = `${spacer4 / 2}${spacerUnit}`; // 0.2864865rem
+    const grHalf5 = `${spacer5 / 2}${spacerUnit}`; // 0.463535rem
+    const grHalf6 = `${spacer6 / 2}${spacerUnit}`; // 0.75rem
+    const grHalf7 = `${spacer7 / 2}${spacerUnit}`; // 1.2135rem
+    const grHalf8 = `${spacer8 / 2}${spacerUnit}`; // 1.963445rem
+    const grHalf9 = `${spacer9 / 2}${spacerUnit}`; // 3.176855rem
+    const grHalf10 = `${spacer10 / 2}${spacerUnit}`; // 5.14015rem
+    const grHalf11 = `${spacer11 / 2}${spacerUnit}`; // 8.31675rem
+    const grDouble1 = `${spacer1 * 2}${spacerUnit}`; // 0.270538rem
+    const grDouble2 = `${spacer2 * 2}${spacerUnit}`; // 0.43773rem
+    const grDouble3 = `${spacer3 * 2}${spacerUnit}`; // 0.708248rem
+    const grDouble4 = `${spacer4 * 2}${spacerUnit}`; // 1.145946rem
+    const grDouble5 = `${spacer5 * 2}${spacerUnit}`; // 1.85414rem
+    const grDouble6 = `${spacer6 * 2}${spacerUnit}`; // 3rem
+    const grDouble7 = `${spacer7 * 2}${spacerUnit}`; // 4.854rem
+    const grDouble8 = `${spacer8 * 2}${spacerUnit}`; // 7.85378rem
+    const grDouble9 = `${spacer9 * 2}${spacerUnit}`; // 12.70742rem
+    const grDouble10 = `${spacer10 * 2}${spacerUnit}`; // 20.5606rem
+    const grDouble11 = `${spacer11 * 2}${spacerUnit}`; // 33.267rem
+
     addComponents({
       ':root': {
-        // '--gr-base': `${spacerBase}`,
-        // '--gr-unit': `1${spacerUnit}`,
         '--gr': `${gr}`,
+        '--golden-ratio': gr,
+        '--golden-ratio-base': `${spacerBase}`,
+        '--golden-ratio-unit': `1${spacerUnit}`,
 
-        '--golden-ratio-1': `${spacer1}${spacerUnit}`, // 0.135269rem
-        '--golden-ratio-2': `${spacer2}${spacerUnit}`, // 0.218865rem
-        '--golden-ratio-3': `${spacer3}${spacerUnit}`, // 0.354124rem
-        '--golden-ratio-4': `${spacer4}${spacerUnit}`, // 0.572973rem
-        '--golden-ratio-5': `${spacer5}${spacerUnit}`, // 0.92707rem
-        '--golden-ratio-6': `${spacer6}${spacerUnit}`, // 1.5rem
-        '--golden-ratio-7': `${spacer7}${spacerUnit}`, // 2.427rem
-        '--golden-ratio-8': `${spacer8}${spacerUnit}`, // 3.92689rem
-        '--golden-ratio-9': `${spacer9}${spacerUnit}`, // 6.35371rem
-        '--golden-ratio-10': `${spacer10}${spacerUnit}`, // 10.2803rem
-        '--golden-ratio-11': `${spacer11}${spacerUnit}`, // 16.6335rem
+        '--golden-ratio-1': gr1,
+        '--golden-ratio-2': gr2,
+        '--golden-ratio-3': gr3,
+        '--golden-ratio-4': gr4,
+        '--golden-ratio-5': gr5,
+        '--golden-ratio-6': gr6,
+        '--golden-ratio-7': gr7,
+        '--golden-ratio-8': gr8,
+        '--golden-ratio-9': gr9,
+        '--golden-ratio-10': gr10,
+        '--golden-ratio-11': gr11,
 
-        '--golden-ratio-half-1': `${spacer1 / 2}${spacerUnit}`, // 0.0676345rem
-        '--golden-ratio-half-2': `${spacer2 / 2}${spacerUnit}`, // 0.1094325rem
-        '--golden-ratio-half-3': `${spacer3 / 2}${spacerUnit}`, // 0.177062rem
-        '--golden-ratio-half-4': `${spacer4 / 2}${spacerUnit}`, // 0.2864865rem
-        '--golden-ratio-half-5': `${spacer5 / 2}${spacerUnit}`, // 0.463535rem
-        '--golden-ratio-half-6': `${spacer6 / 2}${spacerUnit}`, // 0.75rem
-        '--golden-ratio-half-7': `${spacer7 / 2}${spacerUnit}`, // 1.2135rem
-        '--golden-ratio-half-8': `${spacer8 / 2}${spacerUnit}`, // 1.963445rem
-        '--golden-ratio-half-9': `${spacer9 / 2}${spacerUnit}`, // 3.176855rem
-        '--golden-ratio-half-10': `${spacer10 / 2}${spacerUnit}`, // 5.14015rem
-        '--golden-ratio-half-11': `${spacer11 / 2}${spacerUnit}`, // 8.31675rem
+        '--golden-ratio-half-1': grHalf1,
+        '--golden-ratio-half-2': grHalf2,
+        '--golden-ratio-half-3': grHalf3,
+        '--golden-ratio-half-4': grHalf4,
+        '--golden-ratio-half-5': grHalf5,
+        '--golden-ratio-half-6': grHalf6,
+        '--golden-ratio-half-7': grHalf7,
+        '--golden-ratio-half-8': grHalf8,
+        '--golden-ratio-half-9': grHalf9,
+        '--golden-ratio-half-10': grHalf10,
+        '--golden-ratio-half-11': grHalf11,
 
-        '--golden-ratio-double-1': `${spacer1 * 2}${spacerUnit}`, // 0.270538rem
-        '--golden-ratio-double-2': `${spacer2 * 2}${spacerUnit}`, // 0.43773rem
-        '--golden-ratio-double-3': `${spacer3 * 2}${spacerUnit}`, // 0.708248rem
-        '--golden-ratio-double-4': `${spacer4 * 2}${spacerUnit}`, // 1.145946rem
-        '--golden-ratio-double-5': `${spacer5 * 2}${spacerUnit}`, // 1.85414rem
-        '--golden-ratio-double-6': `${spacer6 * 2}${spacerUnit}`, // 3rem
-        '--golden-ratio-double-7': `${spacer7 * 2}${spacerUnit}`, // 4.854rem
-        '--golden-ratio-double-8': `${spacer8 * 2}${spacerUnit}`, // 7.85378rem
-        '--golden-ratio-double-9': `${spacer9 * 2}${spacerUnit}`, // 12.70742rem
-        '--golden-ratio-double-10': `${spacer10 * 2}${spacerUnit}`, // 20.5606rem
-        '--golden-ratio-double-11': `${spacer11 * 2}${spacerUnit}`, // 33.267rem
+        '--golden-ratio-double-1': grDouble1,
+        '--golden-ratio-double-2': grDouble2,
+        '--golden-ratio-double-3': grDouble3,
+        '--golden-ratio-double-4': grDouble4,
+        '--golden-ratio-double-5': grDouble5,
+        '--golden-ratio-double-6': grDouble6,
+        '--golden-ratio-double-7': grDouble7,
+        '--golden-ratio-double-8': grDouble8,
+        '--golden-ratio-double-9': grDouble9,
+        '--golden-ratio-double-10': grDouble10,
+        '--golden-ratio-double-11': grDouble11,
       },
     });
   },
@@ -119,41 +156,41 @@ module.exports = plugin(
         }),
 
         spacing: {
-          'gr-1': 'var(--golden-ratio-1)',
-          'gr-2': 'var(--golden-ratio-2)',
-          'gr-3': 'var(--golden-ratio-3)',
-          'gr-4': 'var(--golden-ratio-4)',
-          'gr-5': 'var(--golden-ratio-5)',
-          'gr-6': 'var(--golden-ratio-6)',
-          'gr-7': 'var(--golden-ratio-7)',
-          'gr-8': 'var(--golden-ratio-8)',
-          'gr-9': 'var(--golden-ratio-9)',
-          'gr-10': 'var(--golden-ratio-10)',
-          'gr-11': 'var(--golden-ratio-11)',
+          'gr-1': useCssVars ? 'var(--golden-ratio-1)' : gr1,
+          'gr-2': useCssVars ? 'var(--golden-ratio-2)' : gr2,
+          'gr-3': useCssVars ? 'var(--golden-ratio-3)' : gr3,
+          'gr-4': useCssVars ? 'var(--golden-ratio-4)' : gr4,
+          'gr-5': useCssVars ? 'var(--golden-ratio-5)' : gr5,
+          'gr-6': useCssVars ? 'var(--golden-ratio-6)' : gr6,
+          'gr-7': useCssVars ? 'var(--golden-ratio-7)' : gr7,
+          'gr-8': useCssVars ? 'var(--golden-ratio-8)' : gr8,
+          'gr-9': useCssVars ? 'var(--golden-ratio-9)' : gr9,
+          'gr-10': useCssVars ? 'var(--golden-ratio-10)' : gr10,
+          'gr-11': useCssVars ? 'var(--golden-ratio-11)' : gr11,
 
-          'gr-half-1': 'var(--golden-ratio-half-1)',
-          'gr-half-2': 'var(--golden-ratio-half-2)',
-          'gr-half-3': 'var(--golden-ratio-half-3)',
-          'gr-half-4': 'var(--golden-ratio-half-4)',
-          'gr-half-5': 'var(--golden-ratio-half-5)',
-          'gr-half-6': 'var(--golden-ratio-half-6)',
-          'gr-half-7': 'var(--golden-ratio-half-7)',
-          'gr-half-8': 'var(--golden-ratio-half-8)',
-          'gr-half-9': 'var(--golden-ratio-half-9)',
-          'gr-half-10': 'var(--golden-ratio-half-10)',
-          'gr-half-11': 'var(--golden-ratio-half-11)',
+          'gr-half-1': useCssVars ? 'var(--golden-ratio-half-1)' : grHalf1,
+          'gr-half-2': useCssVars ? 'var(--golden-ratio-half-2)' : grHalf2,
+          'gr-half-3': useCssVars ? 'var(--golden-ratio-half-3)' : grHalf3,
+          'gr-half-4': useCssVars ? 'var(--golden-ratio-half-4)' : grHalf4,
+          'gr-half-5': useCssVars ? 'var(--golden-ratio-half-5)' : grHalf5,
+          'gr-half-6': useCssVars ? 'var(--golden-ratio-half-6)' : grHalf6,
+          'gr-half-7': useCssVars ? 'var(--golden-ratio-half-7)' : grHalf7,
+          'gr-half-8': useCssVars ? 'var(--golden-ratio-half-8)' : grHalf8,
+          'gr-half-9': useCssVars ? 'var(--golden-ratio-half-9)' : grHalf9,
+          'gr-half-10': useCssVars ? 'var(--golden-ratio-half-10)' : grHalf10,
+          'gr-half-11': useCssVars ? 'var(--golden-ratio-half-11)' : grHalf11,
 
-          'gr-double-1': 'var(--golden-ratio-double-1)',
-          'gr-double-2': 'var(--golden-ratio-double-2)',
-          'gr-double-3': 'var(--golden-ratio-double-3)',
-          'gr-double-4': 'var(--golden-ratio-double-4)',
-          'gr-double-5': 'var(--golden-ratio-double-5)',
-          'gr-double-6': 'var(--golden-ratio-double-6)',
-          'gr-double-7': 'var(--golden-ratio-double-7)',
-          'gr-double-8': 'var(--golden-ratio-double-8)',
-          'gr-double-9': 'var(--golden-ratio-double-9)',
-          'gr-double-10': 'var(--golden-ratio-double-10)',
-          'gr-double-11': 'var(--golden-ratio-double-11)',
+          'gr-double-1': useCssVars ? 'var(--golden-ratio-double-1)' : grDouble1,
+          'gr-double-2': useCssVars ? 'var(--golden-ratio-double-2)' : grDouble2,
+          'gr-double-3': useCssVars ? 'var(--golden-ratio-double-3)' : grDouble3,
+          'gr-double-4': useCssVars ? 'var(--golden-ratio-double-4)' : grDouble4,
+          'gr-double-5': useCssVars ? 'var(--golden-ratio-double-5)' : grDouble5,
+          'gr-double-6': useCssVars ? 'var(--golden-ratio-double-6)' : grDouble6,
+          'gr-double-7': useCssVars ? 'var(--golden-ratio-double-7)' : grDouble7,
+          'gr-double-8': useCssVars ? 'var(--golden-ratio-double-8)' : grDouble8,
+          'gr-double-9': useCssVars ? 'var(--golden-ratio-double-9)' : grDouble9,
+          'gr-double-10': useCssVars ? 'var(--golden-ratio-double-10)' : grDouble10,
+          'gr-double-11': useCssVars ? 'var(--golden-ratio-double-11)' : grDouble11,
 
           'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
           'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
@@ -193,55 +230,55 @@ module.exports = plugin(
         },
 
         borderWidth: {
-          default: 'var(--golden-ratio-1)',
-          'gr-2': 'var(--golden-ratio-2)',
-          'gr-3': 'var(--golden-ratio-3)',
-          'gr-4': 'var(--golden-ratio-4)',
-          'gr-5': 'var(--golden-ratio-5)',
-          'gr-6': 'var(--golden-ratio-6)',
-          'gr-7': 'var(--golden-ratio-7)',
-          'gr-8': 'var(--golden-ratio-8)',
-          'gr-9': 'var(--golden-ratio-9)',
-          'gr-10': 'var(--golden-ratio-10)',
-          'gr-11': 'var(--golden-ratio-11)',
+          default: useCssVars ? 'var(--golden-ratio-1)' : gr1,
+          'gr-2': useCssVars ? 'var(--golden-ratio-2)' : gr2,
+          'gr-3': useCssVars ? 'var(--golden-ratio-3)' : gr3,
+          'gr-4': useCssVars ? 'var(--golden-ratio-4)' : gr4,
+          'gr-5': useCssVars ? 'var(--golden-ratio-5)' : gr5,
+          'gr-6': useCssVars ? 'var(--golden-ratio-6)' : gr6,
+          'gr-7': useCssVars ? 'var(--golden-ratio-7)' : gr7,
+          'gr-8': useCssVars ? 'var(--golden-ratio-8)' : gr8,
+          'gr-9': useCssVars ? 'var(--golden-ratio-9)' : gr9,
+          'gr-10': useCssVars ? 'var(--golden-ratio-10)' : gr10,
+          'gr-11': useCssVars ? 'var(--golden-ratio-11)' : gr11,
 
-          'gr-half-1': 'var(--golden-ratio-half-1)',
-          'gr-half-2': 'var(--golden-ratio-half-2)',
-          'gr-half-3': 'var(--golden-ratio-half-3)',
-          'gr-half-4': 'var(--golden-ratio-half-4)',
-          'gr-half-5': 'var(--golden-ratio-half-5)',
-          'gr-half-6': 'var(--golden-ratio-half-6)',
-          'gr-half-7': 'var(--golden-ratio-half-7)',
-          'gr-half-8': 'var(--golden-ratio-half-8)',
-          'gr-half-9': 'var(--golden-ratio-half-9)',
-          'gr-half-10': 'var(--golden-ratio-half-10)',
-          'gr-half-11': 'var(--golden-ratio-half-11)',
+          'gr-half-1': useCssVars ? 'var(--golden-ratio-half-1)' : grHalf1,
+          'gr-half-2': useCssVars ? 'var(--golden-ratio-half-2)' : grHalf2,
+          'gr-half-3': useCssVars ? 'var(--golden-ratio-half-3)' : grHalf3,
+          'gr-half-4': useCssVars ? 'var(--golden-ratio-half-4)' : grHalf4,
+          'gr-half-5': useCssVars ? 'var(--golden-ratio-half-5)' : grHalf5,
+          'gr-half-6': useCssVars ? 'var(--golden-ratio-half-6)' : grHalf6,
+          'gr-half-7': useCssVars ? 'var(--golden-ratio-half-7)' : grHalf7,
+          'gr-half-8': useCssVars ? 'var(--golden-ratio-half-8)' : grHalf8,
+          'gr-half-9': useCssVars ? 'var(--golden-ratio-half-9)' : grHalf9,
+          'gr-half-10': useCssVars ? 'var(--golden-ratio-half-10)' : grHalf10,
+          'gr-half-11': useCssVars ? 'var(--golden-ratio-half-11)' : grHalf11,
 
-          'gr-double-1': 'var(--golden-ratio-double-1)',
-          'gr-double-2': 'var(--golden-ratio-double-2)',
-          'gr-double-3': 'var(--golden-ratio-double-3)',
-          'gr-double-4': 'var(--golden-ratio-double-4)',
-          'gr-double-5': 'var(--golden-ratio-double-5)',
-          'gr-double-6': 'var(--golden-ratio-double-6)',
-          'gr-double-7': 'var(--golden-ratio-double-7)',
-          'gr-double-8': 'var(--golden-ratio-double-8)',
-          'gr-double-9': 'var(--golden-ratio-double-9)',
-          'gr-double-10': 'var(--golden-ratio-double-10)',
-          'gr-double-11': 'var(--golden-ratio-double-11)',
+          'gr-double-1': useCssVars ? 'var(--golden-ratio-double-1)' : grDouble1,
+          'gr-double-2': useCssVars ? 'var(--golden-ratio-double-2)' : grDouble2,
+          'gr-double-3': useCssVars ? 'var(--golden-ratio-double-3)' : grDouble3,
+          'gr-double-4': useCssVars ? 'var(--golden-ratio-double-4)' : grDouble4,
+          'gr-double-5': useCssVars ? 'var(--golden-ratio-double-5)' : grDouble5,
+          'gr-double-6': useCssVars ? 'var(--golden-ratio-double-6)' : grDouble6,
+          'gr-double-7': useCssVars ? 'var(--golden-ratio-double-7)' : grDouble7,
+          'gr-double-8': useCssVars ? 'var(--golden-ratio-double-8)' : grDouble8,
+          'gr-double-9': useCssVars ? 'var(--golden-ratio-double-9)' : grDouble9,
+          'gr-double-10': useCssVars ? 'var(--golden-ratio-double-10)' : grDouble10,
+          'gr-double-11': useCssVars ? 'var(--golden-ratio-double-11)' : grDouble11,
         },
 
         lineHeight: {
-          'gr-1': 'var(--golden-ratio-1)',
-          'gr-2': 'var(--golden-ratio-2)',
-          'gr-3': 'var(--golden-ratio-3)',
-          'gr-4': 'var(--golden-ratio-4)',
-          'gr-5': 'var(--golden-ratio-5)',
-          'gr-6': 'var(--golden-ratio-6)',
-          'gr-7': 'var(--golden-ratio-7)',
-          'gr-8': 'var(--golden-ratio-8)',
-          'gr-9': 'var(--golden-ratio-9)',
-          'gr-10': 'var(--golden-ratio-10)',
-          'gr-11': 'var(--golden-ratio-11)',
+          'gr-1': useCssVars ? 'var(--golden-ratio-1)' : gr1,
+          'gr-2': useCssVars ? 'var(--golden-ratio-2)' : gr2,
+          'gr-3': useCssVars ? 'var(--golden-ratio-3)' : gr3,
+          'gr-4': useCssVars ? 'var(--golden-ratio-4)' : gr4,
+          'gr-5': useCssVars ? 'var(--golden-ratio-5)' : gr5,
+          'gr-6': useCssVars ? 'var(--golden-ratio-6)' : gr6,
+          'gr-7': useCssVars ? 'var(--golden-ratio-7)' : gr7,
+          'gr-8': useCssVars ? 'var(--golden-ratio-8)' : gr8,
+          'gr-9': useCssVars ? 'var(--golden-ratio-9)' : gr9,
+          'gr-10': useCssVars ? 'var(--golden-ratio-10)' : gr10,
+          'gr-11': useCssVars ? 'var(--golden-ratio-11)' : gr11,
         },
       },
     },
