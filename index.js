@@ -94,6 +94,110 @@ function getGolden(grPrefix, spacerBase, spacerUnit, useCssVars) {
   return golden;
 }
 
+const config = {
+  scale: {
+    'grp-1': `${1 / gr / gr / gr / gr / gr}`, // 0.0901792
+    'grp-2': `${1 / gr / gr / gr / gr}`, // 0.14591
+    'grp-3': `${1 / gr / gr / gr}`, // 0.236083
+    'grp-4': `${1 / gr / gr}`, // 0.381982
+    'grp-5': `${1 / gr}`, // 0.618047
+    'grp-6': `${1}`, // 1
+    'grp-7': `${1 * gr}`, // 1.61803398875
+    'grp-8': `${1 * gr * gr}`, // 2.61798
+    'grp-9': `${1 * gr * gr * gr}`, // 4.23589
+    'grp-10': `${1 * gr * gr * gr * gr}`, // 6.85367
+    'grp-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
+  },
+
+  maxWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  maxHeight: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  minWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  minHeight: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  spacing: (theme) => {
+    const prefix = theme('goldenRatio.prefix', false);
+    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
+    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
+    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
+    const useCssVars = theme('goldenRatio.useCssVars', true);
+    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
+
+    return {
+      ...golden,
+      'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
+      'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
+      'grp-3': `${100 / gr / gr / gr}%`, // 0.236083
+      'grp-4': `${100 / gr / gr}%`, // 0.381982
+      'grp-5': `${100 / gr}%`, // 0.618047
+      'grp-6': `${100}%`, // 1
+      'grp-7': `${100 * gr}%`, // 1.61803398875
+      'grp-8': `${100 * gr * gr}%`, // 2.61798
+      'grp-9': `${100 * gr * gr * gr}%`, // 4.23589
+      'grp-10': `${100 * gr * gr * gr * gr}%`, // 6.85367
+      'grp-11': `${100 * gr * gr * gr * gr * gr}%`, // 11.0892
+      'grp-half-1': `${50 / gr / gr / gr / gr / gr}%`,
+      'grp-half-2': `${50 / gr / gr / gr / gr}%`,
+      'grp-half-3': `${50 / gr / gr / gr}%`,
+      'grp-half-4': `${50 / gr / gr}%`,
+      'grp-half-5': `${50 / gr}%`,
+      'grp-half-6': `${50}%`,
+      'grp-half-7': `${50 * gr}%`,
+      'grp-half-8': `${50 * gr * gr}%`,
+      'grp-half-9': `${50 * gr * gr * gr}%`,
+      'grp-half-10': `${50 * gr * gr * gr * gr}%`,
+      'grp-half-11': `${50 * gr * gr * gr * gr * gr}%`,
+      'grp-double-1': `${200 / gr / gr / gr / gr / gr}%`,
+      'grp-double-2': `${200 / gr / gr / gr / gr}%`,
+      'grp-double-3': `${200 / gr / gr / gr}%`,
+      'grp-double-4': `${200 / gr / gr}%`,
+      'grp-double-5': `${200 / gr}%`,
+      'grp-double-6': `${200}%`,
+      'grp-double-7': `${200 * gr}%`,
+      'grp-double-8': `${200 * gr * gr}%`,
+      'grp-double-9': `${200 * gr * gr * gr}%`,
+      'grp-double-10': `${200 * gr * gr * gr * gr}%`,
+      'grp-double-11': `${200 * gr * gr * gr * gr * gr}%`,
+    };
+  },
+
+  borderWidth: (theme) => {
+    const prefix = theme('goldenRatio.prefix', false);
+    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
+    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
+    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
+    const useCssVars = theme('goldenRatio.useCssVars', true);
+    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
+
+    return {
+      ...golden,
+    };
+  },
+
+  lineHeight: (theme) => {
+    const prefix = theme('goldenRatio.prefix', false);
+    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
+    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
+    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
+    const useCssVars = theme('goldenRatio.useCssVars', true);
+    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
+
+    return {
+      ...golden,
+    };
+  },
+};
+
 module.exports = plugin(
   function ({ addComponents, theme }) {
     const prefix = theme('goldenRatio.prefix', false);
@@ -148,107 +252,7 @@ module.exports = plugin(
   {
     theme: {
       extend: {
-        scale: {
-          'grp-1': `${1 / gr / gr / gr / gr / gr}`, // 0.0901792
-          'grp-2': `${1 / gr / gr / gr / gr}`, // 0.14591
-          'grp-3': `${1 / gr / gr / gr}`, // 0.236083
-          'grp-4': `${1 / gr / gr}`, // 0.381982
-          'grp-5': `${1 / gr}`, // 0.618047
-          'grp-6': `${1}`, // 1
-          'grp-7': `${1 * gr}`, // 1.61803398875
-          'grp-8': `${1 * gr * gr}`, // 2.61798
-          'grp-9': `${1 * gr * gr * gr}`, // 4.23589
-          'grp-10': `${1 * gr * gr * gr * gr}`, // 6.85367
-          'grp-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
-        },
-
-        maxWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
-
-        maxHeight: (theme) => ({
-          ...theme('spacing'),
-        }),
-
-        minWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
-
-        minHeight: (theme) => ({
-          ...theme('spacing'),
-        }),
-
-        spacing: (theme) => {
-          const prefix = theme('goldenRatio.prefix', false);
-          const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-          const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-          const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-          const useCssVars = theme('goldenRatio.useCssVars', true);
-          const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
-
-          return {
-            ...golden,
-            'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
-            'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
-            'grp-3': `${100 / gr / gr / gr}%`, // 0.236083
-            'grp-4': `${100 / gr / gr}%`, // 0.381982
-            'grp-5': `${100 / gr}%`, // 0.618047
-            'grp-6': `${100}%`, // 1
-            'grp-7': `${100 * gr}%`, // 1.61803398875
-            'grp-8': `${100 * gr * gr}%`, // 2.61798
-            'grp-9': `${100 * gr * gr * gr}%`, // 4.23589
-            'grp-10': `${100 * gr * gr * gr * gr}%`, // 6.85367
-            'grp-11': `${100 * gr * gr * gr * gr * gr}%`, // 11.0892
-            'grp-half-1': `${50 / gr / gr / gr / gr / gr}%`,
-            'grp-half-2': `${50 / gr / gr / gr / gr}%`,
-            'grp-half-3': `${50 / gr / gr / gr}%`,
-            'grp-half-4': `${50 / gr / gr}%`,
-            'grp-half-5': `${50 / gr}%`,
-            'grp-half-6': `${50}%`,
-            'grp-half-7': `${50 * gr}%`,
-            'grp-half-8': `${50 * gr * gr}%`,
-            'grp-half-9': `${50 * gr * gr * gr}%`,
-            'grp-half-10': `${50 * gr * gr * gr * gr}%`,
-            'grp-half-11': `${50 * gr * gr * gr * gr * gr}%`,
-            'grp-double-1': `${200 / gr / gr / gr / gr / gr}%`,
-            'grp-double-2': `${200 / gr / gr / gr / gr}%`,
-            'grp-double-3': `${200 / gr / gr / gr}%`,
-            'grp-double-4': `${200 / gr / gr}%`,
-            'grp-double-5': `${200 / gr}%`,
-            'grp-double-6': `${200}%`,
-            'grp-double-7': `${200 * gr}%`,
-            'grp-double-8': `${200 * gr * gr}%`,
-            'grp-double-9': `${200 * gr * gr * gr}%`,
-            'grp-double-10': `${200 * gr * gr * gr * gr}%`,
-            'grp-double-11': `${200 * gr * gr * gr * gr * gr}%`,
-          };
-        },
-
-        borderWidth: (theme) => {
-          const prefix = theme('goldenRatio.prefix', false);
-          const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-          const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-          const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-          const useCssVars = theme('goldenRatio.useCssVars', true);
-          const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
-
-          return {
-            ...golden,
-          };
-        },
-
-        lineHeight: (theme) => {
-          const prefix = theme('goldenRatio.prefix', false);
-          const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-          const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-          const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-          const useCssVars = theme('goldenRatio.useCssVars', true);
-          const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
-
-          return {
-            ...golden,
-          };
-        },
+        ...config,
       },
     },
   },
