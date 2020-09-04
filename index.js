@@ -52,44 +52,67 @@ function getGolden(grPrefix, spacerBase, spacerUnit, useCssVars) {
   };
 
   let golden = {
-    ...base,
+    base,
+    values: {},
   };
 
-  golden[`${grPrefix}1`] = useCssVars ? 'var(--golden-ratio-1)' : base.gr1;
-  golden[`${grPrefix}2`] = useCssVars ? 'var(--golden-ratio-2)' : base.gr2;
-  golden[`${grPrefix}3`] = useCssVars ? 'var(--golden-ratio-3)' : base.gr3;
-  golden[`${grPrefix}4`] = useCssVars ? 'var(--golden-ratio-4)' : base.gr4;
-  golden[`${grPrefix}5`] = useCssVars ? 'var(--golden-ratio-5)' : base.gr5;
-  golden[`${grPrefix}6`] = useCssVars ? 'var(--golden-ratio-6)' : base.gr6;
-  golden[`${grPrefix}7`] = useCssVars ? 'var(--golden-ratio-7)' : base.gr7;
-  golden[`${grPrefix}8`] = useCssVars ? 'var(--golden-ratio-8)' : base.gr8;
-  golden[`${grPrefix}9`] = useCssVars ? 'var(--golden-ratio-9)' : base.gr9;
-  golden[`${grPrefix}10`] = useCssVars ? 'var(--golden-ratio-10)' : base.gr10;
-  golden[`${grPrefix}11`] = useCssVars ? 'var(--golden-ratio-11)' : base.gr11;
+  golden.values[`${grPrefix}1`] = useCssVars ? 'var(--golden-ratio-1)' : base.gr1;
+  golden.values[`${grPrefix}2`] = useCssVars ? 'var(--golden-ratio-2)' : base.gr2;
+  golden.values[`${grPrefix}3`] = useCssVars ? 'var(--golden-ratio-3)' : base.gr3;
+  golden.values[`${grPrefix}4`] = useCssVars ? 'var(--golden-ratio-4)' : base.gr4;
+  golden.values[`${grPrefix}5`] = useCssVars ? 'var(--golden-ratio-5)' : base.gr5;
+  golden.values[`${grPrefix}6`] = useCssVars ? 'var(--golden-ratio-6)' : base.gr6;
+  golden.values[`${grPrefix}7`] = useCssVars ? 'var(--golden-ratio-7)' : base.gr7;
+  golden.values[`${grPrefix}8`] = useCssVars ? 'var(--golden-ratio-8)' : base.gr8;
+  golden.values[`${grPrefix}9`] = useCssVars ? 'var(--golden-ratio-9)' : base.gr9;
+  golden.values[`${grPrefix}10`] = useCssVars ? 'var(--golden-ratio-10)' : base.gr10;
+  golden.values[`${grPrefix}11`] = useCssVars ? 'var(--golden-ratio-11)' : base.gr11;
 
-  golden[`${grPrefix}half-1`] = useCssVars ? 'var(--golden-ratio-half-1)' : base.grHalf1;
-  golden[`${grPrefix}half-2`] = useCssVars ? 'var(--golden-ratio-half-2)' : base.grHalf2;
-  golden[`${grPrefix}half-3`] = useCssVars ? 'var(--golden-ratio-half-3)' : base.grHalf3;
-  golden[`${grPrefix}half-4`] = useCssVars ? 'var(--golden-ratio-half-4)' : base.grHalf4;
-  golden[`${grPrefix}half-5`] = useCssVars ? 'var(--golden-ratio-half-5)' : base.grHalf5;
-  golden[`${grPrefix}half-6`] = useCssVars ? 'var(--golden-ratio-half-6)' : base.grHalf6;
-  golden[`${grPrefix}half-7`] = useCssVars ? 'var(--golden-ratio-half-7)' : base.grHalf7;
-  golden[`${grPrefix}half-8`] = useCssVars ? 'var(--golden-ratio-half-8)' : base.grHalf8;
-  golden[`${grPrefix}half-9`] = useCssVars ? 'var(--golden-ratio-half-9)' : base.grHalf9;
-  golden[`${grPrefix}half-10`] = useCssVars ? 'var(--golden-ratio-half-10)' : base.grHalf10;
-  golden[`${grPrefix}half-11`] = useCssVars ? 'var(--golden-ratio-half-11)' : base.grHalf11;
+  golden.values[`${grPrefix}half-1`] = useCssVars ? 'var(--golden-ratio-half-1)' : base.grHalf1;
+  golden.values[`${grPrefix}half-2`] = useCssVars ? 'var(--golden-ratio-half-2)' : base.grHalf2;
+  golden.values[`${grPrefix}half-3`] = useCssVars ? 'var(--golden-ratio-half-3)' : base.grHalf3;
+  golden.values[`${grPrefix}half-4`] = useCssVars ? 'var(--golden-ratio-half-4)' : base.grHalf4;
+  golden.values[`${grPrefix}half-5`] = useCssVars ? 'var(--golden-ratio-half-5)' : base.grHalf5;
+  golden.values[`${grPrefix}half-6`] = useCssVars ? 'var(--golden-ratio-half-6)' : base.grHalf6;
+  golden.values[`${grPrefix}half-7`] = useCssVars ? 'var(--golden-ratio-half-7)' : base.grHalf7;
+  golden.values[`${grPrefix}half-8`] = useCssVars ? 'var(--golden-ratio-half-8)' : base.grHalf8;
+  golden.values[`${grPrefix}half-9`] = useCssVars ? 'var(--golden-ratio-half-9)' : base.grHalf9;
+  golden.values[`${grPrefix}half-10`] = useCssVars ? 'var(--golden-ratio-half-10)' : base.grHalf10;
+  golden.values[`${grPrefix}half-11`] = useCssVars ? 'var(--golden-ratio-half-11)' : base.grHalf11;
 
-  golden[`${grPrefix}double-1`] = useCssVars ? 'var(--golden-ratio-double-1)' : base.grDouble1;
-  golden[`${grPrefix}double-2`] = useCssVars ? 'var(--golden-ratio-double-2)' : base.grDouble2;
-  golden[`${grPrefix}double-3`] = useCssVars ? 'var(--golden-ratio-double-3)' : base.grDouble3;
-  golden[`${grPrefix}double-4`] = useCssVars ? 'var(--golden-ratio-double-4)' : base.grDouble4;
-  golden[`${grPrefix}double-5`] = useCssVars ? 'var(--golden-ratio-double-5)' : base.grDouble5;
-  golden[`${grPrefix}double-6`] = useCssVars ? 'var(--golden-ratio-double-6)' : base.grDouble6;
-  golden[`${grPrefix}double-7`] = useCssVars ? 'var(--golden-ratio-double-7)' : base.grDouble7;
-  golden[`${grPrefix}double-8`] = useCssVars ? 'var(--golden-ratio-double-8)' : base.grDouble8;
-  golden[`${grPrefix}double-9`] = useCssVars ? 'var(--golden-ratio-double-9)' : base.grDouble9;
-  golden[`${grPrefix}double-10`] = useCssVars ? 'var(--golden-ratio-double-10)' : base.grDouble10;
-  golden[`${grPrefix}double-11`] = useCssVars ? 'var(--golden-ratio-double-11)' : base.grDouble11;
+  golden.values[`${grPrefix}double-1`] = useCssVars
+    ? 'var(--golden-ratio-double-1)'
+    : base.grDouble1;
+  golden.values[`${grPrefix}double-2`] = useCssVars
+    ? 'var(--golden-ratio-double-2)'
+    : base.grDouble2;
+  golden.values[`${grPrefix}double-3`] = useCssVars
+    ? 'var(--golden-ratio-double-3)'
+    : base.grDouble3;
+  golden.values[`${grPrefix}double-4`] = useCssVars
+    ? 'var(--golden-ratio-double-4)'
+    : base.grDouble4;
+  golden.values[`${grPrefix}double-5`] = useCssVars
+    ? 'var(--golden-ratio-double-5)'
+    : base.grDouble5;
+  golden.values[`${grPrefix}double-6`] = useCssVars
+    ? 'var(--golden-ratio-double-6)'
+    : base.grDouble6;
+  golden.values[`${grPrefix}double-7`] = useCssVars
+    ? 'var(--golden-ratio-double-7)'
+    : base.grDouble7;
+  golden.values[`${grPrefix}double-8`] = useCssVars
+    ? 'var(--golden-ratio-double-8)'
+    : base.grDouble8;
+  golden.values[`${grPrefix}double-9`] = useCssVars
+    ? 'var(--golden-ratio-double-9)'
+    : base.grDouble9;
+  golden.values[`${grPrefix}double-10`] = useCssVars
+    ? 'var(--golden-ratio-double-10)'
+    : base.grDouble10;
+  golden.values[`${grPrefix}double-11`] = useCssVars
+    ? 'var(--golden-ratio-double-11)'
+    : base.grDouble11;
 
   return golden;
 }
@@ -134,7 +157,7 @@ const config = {
     const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
 
     return {
-      ...golden,
+      ...golden.values,
       'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
       'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
       'grp-3': `${100 / gr / gr / gr}%`, // 0.236083
@@ -180,7 +203,7 @@ const config = {
     const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
 
     return {
-      ...golden,
+      ...golden.values,
     };
   },
 
@@ -193,7 +216,7 @@ const config = {
     const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
 
     return {
-      ...golden,
+      ...golden.values,
     };
   },
 };
@@ -207,47 +230,49 @@ module.exports = plugin(
     const useCssVars = theme('goldenRatio.useCssVars', true);
     const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
 
-    addComponents({
-      ':root': {
-        '--gr': `${gr}`,
-        '--golden-ratio': gr,
-        '--golden-ratio-base': `${spacerBase}`,
-        '--golden-ratio-unit': `1${spacerUnit}`,
-        '--golden-ratio-1': golden.gr1,
-        '--golden-ratio-2': golden.gr2,
-        '--golden-ratio-3': golden.gr3,
-        '--golden-ratio-4': golden.gr4,
-        '--golden-ratio-5': golden.gr5,
-        '--golden-ratio-6': golden.gr6,
-        '--golden-ratio-7': golden.gr7,
-        '--golden-ratio-8': golden.gr8,
-        '--golden-ratio-9': golden.gr9,
-        '--golden-ratio-10': golden.gr10,
-        '--golden-ratio-11': golden.gr11,
-        '--golden-ratio-half-1': golden.grHalf1,
-        '--golden-ratio-half-2': golden.grHalf2,
-        '--golden-ratio-half-3': golden.grHalf3,
-        '--golden-ratio-half-4': golden.grHalf4,
-        '--golden-ratio-half-5': golden.grHalf5,
-        '--golden-ratio-half-6': golden.grHalf6,
-        '--golden-ratio-half-7': golden.grHalf7,
-        '--golden-ratio-half-8': golden.grHalf8,
-        '--golden-ratio-half-9': golden.grHalf9,
-        '--golden-ratio-half-10': golden.grHalf10,
-        '--golden-ratio-half-11': golden.grHalf11,
-        '--golden-ratio-double-1': golden.grDouble1,
-        '--golden-ratio-double-2': golden.grDouble2,
-        '--golden-ratio-double-3': golden.grDouble3,
-        '--golden-ratio-double-4': golden.grDouble4,
-        '--golden-ratio-double-5': golden.grDouble5,
-        '--golden-ratio-double-6': golden.grDouble6,
-        '--golden-ratio-double-7': golden.grDouble7,
-        '--golden-ratio-double-8': golden.grDouble8,
-        '--golden-ratio-double-9': golden.grDouble9,
-        '--golden-ratio-double-10': golden.grDouble10,
-        '--golden-ratio-double-11': golden.grDouble11,
-      },
-    });
+    if (useCssVars) {
+      addComponents({
+        ':root': {
+          '--gr': `${gr}`,
+          '--golden-ratio': gr,
+          '--golden-ratio-base': `${spacerBase}`,
+          '--golden-ratio-unit': `1${spacerUnit}`,
+          '--golden-ratio-1': golden.base.gr1,
+          '--golden-ratio-2': golden.base.gr2,
+          '--golden-ratio-3': golden.base.gr3,
+          '--golden-ratio-4': golden.base.gr4,
+          '--golden-ratio-5': golden.base.gr5,
+          '--golden-ratio-6': golden.base.gr6,
+          '--golden-ratio-7': golden.base.gr7,
+          '--golden-ratio-8': golden.base.gr8,
+          '--golden-ratio-9': golden.base.gr9,
+          '--golden-ratio-10': golden.base.gr10,
+          '--golden-ratio-11': golden.base.gr11,
+          '--golden-ratio-half-1': golden.base.grHalf1,
+          '--golden-ratio-half-2': golden.base.grHalf2,
+          '--golden-ratio-half-3': golden.base.grHalf3,
+          '--golden-ratio-half-4': golden.base.grHalf4,
+          '--golden-ratio-half-5': golden.base.grHalf5,
+          '--golden-ratio-half-6': golden.base.grHalf6,
+          '--golden-ratio-half-7': golden.base.grHalf7,
+          '--golden-ratio-half-8': golden.base.grHalf8,
+          '--golden-ratio-half-9': golden.base.grHalf9,
+          '--golden-ratio-half-10': golden.base.grHalf10,
+          '--golden-ratio-half-11': golden.base.grHalf11,
+          '--golden-ratio-double-1': golden.base.grDouble1,
+          '--golden-ratio-double-2': golden.base.grDouble2,
+          '--golden-ratio-double-3': golden.base.grDouble3,
+          '--golden-ratio-double-4': golden.base.grDouble4,
+          '--golden-ratio-double-5': golden.base.grDouble5,
+          '--golden-ratio-double-6': golden.base.grDouble6,
+          '--golden-ratio-double-7': golden.base.grDouble7,
+          '--golden-ratio-double-8': golden.base.grDouble8,
+          '--golden-ratio-double-9': golden.base.grDouble9,
+          '--golden-ratio-double-10': golden.base.grDouble10,
+          '--golden-ratio-double-11': golden.base.grDouble11,
+        },
+      });
+    }
   },
   {
     theme: {
