@@ -219,6 +219,15 @@ const config = {
       ...golden.values,
     };
   },
+
+  fontSize: (theme) => ({
+    ...theme('spacing'),
+    110: 1 / 1.1 + 'em',
+    120: 1 / 1.2 + 'em',
+    130: 1 / 1.3 + 'em',
+    140: 1 / 1.4 + 'em',
+    150: 1 / 1.5 + 'em',
+  }),
 };
 
 module.exports = plugin(
