@@ -228,6 +228,10 @@ const config = {
     140: 1 / 1.4 + 'em',
     150: 1 / 1.5 + 'em',
   }),
+
+  inset: (theme) => ({
+    ...theme('spacing'),
+  }),
 };
 
 module.exports = plugin(
