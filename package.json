@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-golden-ratio",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Tailwind CSS plugin to utilize the Golden Ratio in spacing, width, scale, borderWidth, and lineHeight",
   "repository": {
     "type": "git",
