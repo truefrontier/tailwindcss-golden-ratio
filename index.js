@@ -232,6 +232,10 @@ const config = {
   inset: (theme) => ({
     ...theme('spacing'),
   }),
+
+  ringWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
 };
 
 module.exports = plugin(
