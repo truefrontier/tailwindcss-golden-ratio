@@ -273,63 +273,59 @@ const config = {
   }),
 };
 
-module.exports = {
-  plugins: [
-    plugin(
-      function ({ addComponents, theme }) {
-        const golden = getGolden(theme);
+module.exports = plugin(
+  function ({ addComponents, theme }) {
+    const golden = getGolden(theme);
 
-        if (useCssVars) {
-          addComponents({
-            ':root': {
-              '--gr': `${gr}`,
-              '--golden-ratio': gr,
-              '--golden-ratio-base': `${spacerBase}`,
-              '--golden-ratio-unit': `1${spacerUnit}`,
-              '--golden-ratio-1': golden.base.gr1,
-              '--golden-ratio-2': golden.base.gr2,
-              '--golden-ratio-3': golden.base.gr3,
-              '--golden-ratio-4': golden.base.gr4,
-              '--golden-ratio-5': golden.base.gr5,
-              '--golden-ratio-6': golden.base.gr6,
-              '--golden-ratio-7': golden.base.gr7,
-              '--golden-ratio-8': golden.base.gr8,
-              '--golden-ratio-9': golden.base.gr9,
-              '--golden-ratio-10': golden.base.gr10,
-              '--golden-ratio-11': golden.base.gr11,
-              '--golden-ratio-half-1': golden.base.grHalf1,
-              '--golden-ratio-half-2': golden.base.grHalf2,
-              '--golden-ratio-half-3': golden.base.grHalf3,
-              '--golden-ratio-half-4': golden.base.grHalf4,
-              '--golden-ratio-half-5': golden.base.grHalf5,
-              '--golden-ratio-half-6': golden.base.grHalf6,
-              '--golden-ratio-half-7': golden.base.grHalf7,
-              '--golden-ratio-half-8': golden.base.grHalf8,
-              '--golden-ratio-half-9': golden.base.grHalf9,
-              '--golden-ratio-half-10': golden.base.grHalf10,
-              '--golden-ratio-half-11': golden.base.grHalf11,
-              '--golden-ratio-double-1': golden.base.grDouble1,
-              '--golden-ratio-double-2': golden.base.grDouble2,
-              '--golden-ratio-double-3': golden.base.grDouble3,
-              '--golden-ratio-double-4': golden.base.grDouble4,
-              '--golden-ratio-double-5': golden.base.grDouble5,
-              '--golden-ratio-double-6': golden.base.grDouble6,
-              '--golden-ratio-double-7': golden.base.grDouble7,
-              '--golden-ratio-double-8': golden.base.grDouble8,
-              '--golden-ratio-double-9': golden.base.grDouble9,
-              '--golden-ratio-double-10': golden.base.grDouble10,
-              '--golden-ratio-double-11': golden.base.grDouble11,
-            },
-          });
-        }
-      },
-      {
-        theme: {
-          extend: {
-            ...config,
-          },
+    if (useCssVars) {
+      addComponents({
+        ':root': {
+          '--gr': `${gr}`,
+          '--golden-ratio': gr,
+          '--golden-ratio-base': `${spacerBase}`,
+          '--golden-ratio-unit': `1${spacerUnit}`,
+          '--golden-ratio-1': golden.base.gr1,
+          '--golden-ratio-2': golden.base.gr2,
+          '--golden-ratio-3': golden.base.gr3,
+          '--golden-ratio-4': golden.base.gr4,
+          '--golden-ratio-5': golden.base.gr5,
+          '--golden-ratio-6': golden.base.gr6,
+          '--golden-ratio-7': golden.base.gr7,
+          '--golden-ratio-8': golden.base.gr8,
+          '--golden-ratio-9': golden.base.gr9,
+          '--golden-ratio-10': golden.base.gr10,
+          '--golden-ratio-11': golden.base.gr11,
+          '--golden-ratio-half-1': golden.base.grHalf1,
+          '--golden-ratio-half-2': golden.base.grHalf2,
+          '--golden-ratio-half-3': golden.base.grHalf3,
+          '--golden-ratio-half-4': golden.base.grHalf4,
+          '--golden-ratio-half-5': golden.base.grHalf5,
+          '--golden-ratio-half-6': golden.base.grHalf6,
+          '--golden-ratio-half-7': golden.base.grHalf7,
+          '--golden-ratio-half-8': golden.base.grHalf8,
+          '--golden-ratio-half-9': golden.base.grHalf9,
+          '--golden-ratio-half-10': golden.base.grHalf10,
+          '--golden-ratio-half-11': golden.base.grHalf11,
+          '--golden-ratio-double-1': golden.base.grDouble1,
+          '--golden-ratio-double-2': golden.base.grDouble2,
+          '--golden-ratio-double-3': golden.base.grDouble3,
+          '--golden-ratio-double-4': golden.base.grDouble4,
+          '--golden-ratio-double-5': golden.base.grDouble5,
+          '--golden-ratio-double-6': golden.base.grDouble6,
+          '--golden-ratio-double-7': golden.base.grDouble7,
+          '--golden-ratio-double-8': golden.base.grDouble8,
+          '--golden-ratio-double-9': golden.base.grDouble9,
+          '--golden-ratio-double-10': golden.base.grDouble10,
+          '--golden-ratio-double-11': golden.base.grDouble11,
         },
+      });
+    }
+  },
+  {
+    theme: {
+      extend: {
+        ...config,
       },
-    ),
-  ],
-};
+    },
+  },
+);
