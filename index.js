@@ -2,7 +2,13 @@ const plugin = require('tailwindcss/plugin');
 
 const gr = 1.61803398875; // The Golden Ratio
 
-function getGolden(grPrefix, spacerBase, spacerUnit, useCssVars) {
+function getGolden(theme) {
+  const prefix = theme('goldenRatio.prefix', true);
+  const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
+  const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
+  const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
+  const useCssVars = theme('goldenRatio.useCssVars', true);
+
   const base1 = spacerBase / gr / gr / gr / gr / gr;
   const base2 = spacerBase / gr / gr / gr / gr;
   const base3 = spacerBase / gr / gr / gr;
@@ -54,6 +60,47 @@ function getGolden(grPrefix, spacerBase, spacerUnit, useCssVars) {
   let golden = {
     base,
     values: {},
+    percentages: {
+      base: {
+        'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
+        'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
+        'grp-3': `${100 / gr / gr / gr}%`, // 0.236083
+        'grp-4': `${100 / gr / gr}%`, // 0.381982
+        'grp-5': `${100 / gr}%`, // 0.618047
+        'grp-6': `${100}%`, // 1
+        'grp-7': `${100 * gr}%`, // 1.61803398875
+        'grp-8': `${100 * gr * gr}%`, // 2.61798
+        'grp-9': `${100 * gr * gr * gr}%`, // 4.23589
+        'grp-10': `${100 * gr * gr * gr * gr}%`, // 6.85367
+        'grp-11': `${100 * gr * gr * gr * gr * gr}%`, // 11.0892
+      },
+      halves: {
+        'grp-half-1': `${50 / gr / gr / gr / gr / gr}%`,
+        'grp-half-2': `${50 / gr / gr / gr / gr}%`,
+        'grp-half-3': `${50 / gr / gr / gr}%`,
+        'grp-half-4': `${50 / gr / gr}%`,
+        'grp-half-5': `${50 / gr}%`,
+        'grp-half-6': `${50}%`,
+        'grp-half-7': `${50 * gr}%`,
+        'grp-half-8': `${50 * gr * gr}%`,
+        'grp-half-9': `${50 * gr * gr * gr}%`,
+        'grp-half-10': `${50 * gr * gr * gr * gr}%`,
+        'grp-half-11': `${50 * gr * gr * gr * gr * gr}%`,
+      },
+      doubles: {
+        'grp-double-1': `${200 / gr / gr / gr / gr / gr}%`,
+        'grp-double-2': `${200 / gr / gr / gr / gr}%`,
+        'grp-double-3': `${200 / gr / gr / gr}%`,
+        'grp-double-4': `${200 / gr / gr}%`,
+        'grp-double-5': `${200 / gr}%`,
+        'grp-double-6': `${200}%`,
+        'grp-double-7': `${200 * gr}%`,
+        'grp-double-8': `${200 * gr * gr}%`,
+        'grp-double-9': `${200 * gr * gr * gr}%`,
+        'grp-double-10': `${200 * gr * gr * gr * gr}%`,
+        'grp-double-11': `${200 * gr * gr * gr * gr * gr}%`,
+      },
+    },
   };
 
   golden.values[`${grPrefix}1`] = useCssVars ? 'var(--golden-ratio-1)' : base.gr1;
@@ -118,21 +165,45 @@ function getGolden(grPrefix, spacerBase, spacerUnit, useCssVars) {
 }
 
 const config = {
-  scale: {
-    'grp-1': `${1 / gr / gr / gr / gr / gr}`, // 0.0901792
-    'grp-2': `${1 / gr / gr / gr / gr}`, // 0.14591
-    'grp-3': `${1 / gr / gr / gr}`, // 0.236083
-    'grp-4': `${1 / gr / gr}`, // 0.381982
-    'grp-5': `${1 / gr}`, // 0.618047
-    'grp-6': `${1}`, // 1
-    'grp-7': `${1 * gr}`, // 1.61803398875
-    'grp-8': `${1 * gr * gr}`, // 2.61798
-    'grp-9': `${1 * gr * gr * gr}`, // 4.23589
-    'grp-10': `${1 * gr * gr * gr * gr}`, // 6.85367
-    'grp-11': `${1 * gr * gr * gr * gr * gr}`, // 11.0892
+  spacing: (theme) => {
+    const golden = getGolden(theme);
+    return {
+      ...golden.values,
+      ...golden.percentages.base,
+      ...golden.percentages.halves,
+      ...golden.percentages.doubles,
+    };
   },
 
-  maxWidth: (theme) => ({
+  borderSpacing: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  borderWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  divideWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  gap: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  height: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  inset: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  lineHeight: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  margin: (theme) => ({
     ...theme('spacing'),
   }),
 
@@ -140,7 +211,7 @@ const config = {
     ...theme('spacing'),
   }),
 
-  minWidth: (theme) => ({
+  maxWidth: (theme) => ({
     ...theme('spacing'),
   }),
 
@@ -148,154 +219,117 @@ const config = {
     ...theme('spacing'),
   }),
 
-  spacing: (theme) => {
-    const prefix = theme('goldenRatio.prefix', false);
-    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-    const useCssVars = theme('goldenRatio.useCssVars', true);
-    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
-
-    return {
-      ...golden.values,
-      'grp-1': `${100 / gr / gr / gr / gr / gr}%`, // 0.0901792
-      'grp-2': `${100 / gr / gr / gr / gr}%`, // 0.14591
-      'grp-3': `${100 / gr / gr / gr}%`, // 0.236083
-      'grp-4': `${100 / gr / gr}%`, // 0.381982
-      'grp-5': `${100 / gr}%`, // 0.618047
-      'grp-6': `${100}%`, // 1
-      'grp-7': `${100 * gr}%`, // 1.61803398875
-      'grp-8': `${100 * gr * gr}%`, // 2.61798
-      'grp-9': `${100 * gr * gr * gr}%`, // 4.23589
-      'grp-10': `${100 * gr * gr * gr * gr}%`, // 6.85367
-      'grp-11': `${100 * gr * gr * gr * gr * gr}%`, // 11.0892
-      'grp-half-1': `${50 / gr / gr / gr / gr / gr}%`,
-      'grp-half-2': `${50 / gr / gr / gr / gr}%`,
-      'grp-half-3': `${50 / gr / gr / gr}%`,
-      'grp-half-4': `${50 / gr / gr}%`,
-      'grp-half-5': `${50 / gr}%`,
-      'grp-half-6': `${50}%`,
-      'grp-half-7': `${50 * gr}%`,
-      'grp-half-8': `${50 * gr * gr}%`,
-      'grp-half-9': `${50 * gr * gr * gr}%`,
-      'grp-half-10': `${50 * gr * gr * gr * gr}%`,
-      'grp-half-11': `${50 * gr * gr * gr * gr * gr}%`,
-      'grp-double-1': `${200 / gr / gr / gr / gr / gr}%`,
-      'grp-double-2': `${200 / gr / gr / gr / gr}%`,
-      'grp-double-3': `${200 / gr / gr / gr}%`,
-      'grp-double-4': `${200 / gr / gr}%`,
-      'grp-double-5': `${200 / gr}%`,
-      'grp-double-6': `${200}%`,
-      'grp-double-7': `${200 * gr}%`,
-      'grp-double-8': `${200 * gr * gr}%`,
-      'grp-double-9': `${200 * gr * gr * gr}%`,
-      'grp-double-10': `${200 * gr * gr * gr * gr}%`,
-      'grp-double-11': `${200 * gr * gr * gr * gr * gr}%`,
-    };
-  },
-
-  borderWidth: (theme) => {
-    const prefix = theme('goldenRatio.prefix', false);
-    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-    const useCssVars = theme('goldenRatio.useCssVars', true);
-    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
-
-    return {
-      ...golden.values,
-    };
-  },
-
-  lineHeight: (theme) => {
-    const prefix = theme('goldenRatio.prefix', false);
-    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-    const useCssVars = theme('goldenRatio.useCssVars', true);
-    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
-
-    return {
-      ...golden.values,
-    };
-  },
-
-  fontSize: (theme) => ({
+  minWidth: (theme) => ({
     ...theme('spacing'),
-    110: 1 / 1.1 + 'em',
-    120: 1 / 1.2 + 'em',
-    130: 1 / 1.3 + 'em',
-    140: 1 / 1.4 + 'em',
-    150: 1 / 1.5 + 'em',
   }),
 
-  inset: (theme) => ({
+  outlineWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  padding: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  ringOffsetWidth: (theme) => ({
     ...theme('spacing'),
   }),
 
   ringWidth: (theme) => ({
     ...theme('spacing'),
   }),
+
+  scale: (theme) => {
+    const golden = getGolden(theme);
+    return {
+      ...golden.percentages.base,
+      ...golden.percentages.halves,
+      ...golden.percentages.doubles,
+    };
+  },
+
+  space: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  strokeWidth: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  translate: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  textIndent: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  textUnderlineOffset: (theme) => ({
+    ...theme('spacing'),
+  }),
+
+  width: (theme) => ({
+    ...theme('spacing'),
+  }),
 };
 
-module.exports = plugin(
-  function ({ addComponents, theme }) {
-    const prefix = theme('goldenRatio.prefix', false);
-    const grPrefix = prefix ? (prefix === true ? 'gr-' : prefix) : '';
-    const spacerUnit = theme('goldenRatio.spacerUnit', 'rem');
-    const spacerBase = parseFloat(theme('goldenRatio.spacerBase', 1.5));
-    const useCssVars = theme('goldenRatio.useCssVars', true);
-    const golden = getGolden(grPrefix, spacerBase, spacerUnit, useCssVars);
+module.exports = {
+  plugins: [
+    plugin(
+      function ({ addComponents, theme }) {
+        const golden = getGolden(theme);
 
-    if (useCssVars) {
-      addComponents({
-        ':root': {
-          '--gr': `${gr}`,
-          '--golden-ratio': gr,
-          '--golden-ratio-base': `${spacerBase}`,
-          '--golden-ratio-unit': `1${spacerUnit}`,
-          '--golden-ratio-1': golden.base.gr1,
-          '--golden-ratio-2': golden.base.gr2,
-          '--golden-ratio-3': golden.base.gr3,
-          '--golden-ratio-4': golden.base.gr4,
-          '--golden-ratio-5': golden.base.gr5,
-          '--golden-ratio-6': golden.base.gr6,
-          '--golden-ratio-7': golden.base.gr7,
-          '--golden-ratio-8': golden.base.gr8,
-          '--golden-ratio-9': golden.base.gr9,
-          '--golden-ratio-10': golden.base.gr10,
-          '--golden-ratio-11': golden.base.gr11,
-          '--golden-ratio-half-1': golden.base.grHalf1,
-          '--golden-ratio-half-2': golden.base.grHalf2,
-          '--golden-ratio-half-3': golden.base.grHalf3,
-          '--golden-ratio-half-4': golden.base.grHalf4,
-          '--golden-ratio-half-5': golden.base.grHalf5,
-          '--golden-ratio-half-6': golden.base.grHalf6,
-          '--golden-ratio-half-7': golden.base.grHalf7,
-          '--golden-ratio-half-8': golden.base.grHalf8,
-          '--golden-ratio-half-9': golden.base.grHalf9,
-          '--golden-ratio-half-10': golden.base.grHalf10,
-          '--golden-ratio-half-11': golden.base.grHalf11,
-          '--golden-ratio-double-1': golden.base.grDouble1,
-          '--golden-ratio-double-2': golden.base.grDouble2,
-          '--golden-ratio-double-3': golden.base.grDouble3,
-          '--golden-ratio-double-4': golden.base.grDouble4,
-          '--golden-ratio-double-5': golden.base.grDouble5,
-          '--golden-ratio-double-6': golden.base.grDouble6,
-          '--golden-ratio-double-7': golden.base.grDouble7,
-          '--golden-ratio-double-8': golden.base.grDouble8,
-          '--golden-ratio-double-9': golden.base.grDouble9,
-          '--golden-ratio-double-10': golden.base.grDouble10,
-          '--golden-ratio-double-11': golden.base.grDouble11,
-        },
-      });
-    }
-  },
-  {
-    theme: {
-      extend: {
-        ...config,
+        if (useCssVars) {
+          addComponents({
+            ':root': {
+              '--gr': `${gr}`,
+              '--golden-ratio': gr,
+              '--golden-ratio-base': `${spacerBase}`,
+              '--golden-ratio-unit': `1${spacerUnit}`,
+              '--golden-ratio-1': golden.base.gr1,
+              '--golden-ratio-2': golden.base.gr2,
+              '--golden-ratio-3': golden.base.gr3,
+              '--golden-ratio-4': golden.base.gr4,
+              '--golden-ratio-5': golden.base.gr5,
+              '--golden-ratio-6': golden.base.gr6,
+              '--golden-ratio-7': golden.base.gr7,
+              '--golden-ratio-8': golden.base.gr8,
+              '--golden-ratio-9': golden.base.gr9,
+              '--golden-ratio-10': golden.base.gr10,
+              '--golden-ratio-11': golden.base.gr11,
+              '--golden-ratio-half-1': golden.base.grHalf1,
+              '--golden-ratio-half-2': golden.base.grHalf2,
+              '--golden-ratio-half-3': golden.base.grHalf3,
+              '--golden-ratio-half-4': golden.base.grHalf4,
+              '--golden-ratio-half-5': golden.base.grHalf5,
+              '--golden-ratio-half-6': golden.base.grHalf6,
+              '--golden-ratio-half-7': golden.base.grHalf7,
+              '--golden-ratio-half-8': golden.base.grHalf8,
+              '--golden-ratio-half-9': golden.base.grHalf9,
+              '--golden-ratio-half-10': golden.base.grHalf10,
+              '--golden-ratio-half-11': golden.base.grHalf11,
+              '--golden-ratio-double-1': golden.base.grDouble1,
+              '--golden-ratio-double-2': golden.base.grDouble2,
+              '--golden-ratio-double-3': golden.base.grDouble3,
+              '--golden-ratio-double-4': golden.base.grDouble4,
+              '--golden-ratio-double-5': golden.base.grDouble5,
+              '--golden-ratio-double-6': golden.base.grDouble6,
+              '--golden-ratio-double-7': golden.base.grDouble7,
+              '--golden-ratio-double-8': golden.base.grDouble8,
+              '--golden-ratio-double-9': golden.base.grDouble9,
+              '--golden-ratio-double-10': golden.base.grDouble10,
+              '--golden-ratio-double-11': golden.base.grDouble11,
+            },
+          });
+        }
       },
-    },
-  },
-);
+      {
+        theme: {
+          extend: {
+            ...config,
+          },
+        },
+      },
+    ),
+  ],
+};
