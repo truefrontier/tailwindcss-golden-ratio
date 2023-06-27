@@ -58,6 +58,12 @@ function getGolden(theme) {
   };
 
   let golden = {
+    config: {
+      prefix: grPrefix,
+      spacerUnit,
+      spacerBase,
+      useCssVars,
+    },
     base,
     values: {},
     percentages: {
@@ -277,13 +283,13 @@ module.exports = plugin(
   function ({ addComponents, theme }) {
     const golden = getGolden(theme);
 
-    if (useCssVars) {
+    if (golden.config.useCssVars) {
       addComponents({
         ':root': {
           '--gr': `${gr}`,
           '--golden-ratio': gr,
-          '--golden-ratio-base': `${spacerBase}`,
-          '--golden-ratio-unit': `1${spacerUnit}`,
+          '--golden-ratio-base': `${golden.config.spacerBase}`,
+          '--golden-ratio-unit': `1${golden.config.spacerUnit}`,
           '--golden-ratio-1': golden.base.gr1,
           '--golden-ratio-2': golden.base.gr2,
           '--golden-ratio-3': golden.base.gr3,
