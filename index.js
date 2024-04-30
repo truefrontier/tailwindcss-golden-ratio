@@ -170,115 +170,6 @@ function getGolden(theme) {
   return golden;
 }
 
-const config = {
-  spacing: (theme) => {
-    const golden = getGolden(theme);
-    return {
-      ...golden.values,
-      ...golden.percentages.base,
-      ...golden.percentages.halves,
-      ...golden.percentages.doubles,
-    };
-  },
-
-  borderSpacing: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  borderWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  divideWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  gap: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  height: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  inset: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  lineHeight: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  margin: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  maxHeight: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  maxWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  minHeight: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  minWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  outlineWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  padding: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  ringOffsetWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  ringWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  scale: (theme) => {
-    const golden = getGolden(theme);
-    return {
-      ...golden.percentages.base,
-      ...golden.percentages.halves,
-      ...golden.percentages.doubles,
-    };
-  },
-
-  space: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  strokeWidth: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  translate: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  textIndent: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  textUnderlineOffset: (theme) => ({
-    ...theme('spacing'),
-  }),
-
-  width: (theme) => ({
-    ...theme('spacing'),
-  }),
-};
-
 module.exports = plugin(
   function ({ addComponents, theme }) {
     const golden = getGolden(theme);
@@ -330,7 +221,112 @@ module.exports = plugin(
   {
     theme: {
       extend: {
-        ...config,
+        spacing: (theme) => {
+          const golden = getGolden(theme);
+          return {
+            ...golden.values,
+            ...golden.percentages.base,
+            ...golden.percentages.halves,
+            ...golden.percentages.doubles,
+          };      
+        },
+
+        borderSpacing: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        borderWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        divideWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        gap: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        height: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        inset: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        lineHeight: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        margin: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        maxHeight: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        maxWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        minHeight: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        minWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        outlineWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        padding: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        ringOffsetWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        ringWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        scale: (theme) => {
+          const golden = getGolden(theme);
+          return {
+            ...golden.percentages.base,
+            ...golden.percentages.halves,
+            ...golden.percentages.doubles,
+          };
+        },
+
+        space: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        strokeWidth: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        translate: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        textIndent: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        textUnderlineOffset: (theme) => ({
+          ...theme('spacing'),
+        }),
+
+        width: (theme) => ({
+          ...theme('spacing'),
+        }),
       },
     },
   },
