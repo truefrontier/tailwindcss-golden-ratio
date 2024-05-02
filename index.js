@@ -148,7 +148,10 @@ module.exports = plugin(
       extend: {
         spacing: (theme) => {
           const golden = getGolden(theme);
-          return golden.spacing;
+          return {
+            ...golden.spacing,
+            ...golden.scale,
+          };
         },
 
         aspectRatio: (theme) => {
