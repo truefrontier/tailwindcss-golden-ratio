@@ -4,8 +4,6 @@
 
 This Tailwind plugin introduces a set of utilities based on the Golden Ratio, a mathematical constant that occurs frequently in nature and is believed to be aesthetically pleasing. The plugin aims to simplify and beautify spacing conventions in Tailwind CSS by providing a consistent and visually appealing set of spacing values.
 
-The plugin uses the Golden Ratio to generate a set of Golden Ratio-based spacing values, ranging from tiny to large sizes. These values are then used to create utility classes for various Tailwind properties, such as margin, padding, font-size, and more.
-
 ### Resources
 
 - [Spacing Cheatsheet](https://goldenratio.app/#/spacing) 
