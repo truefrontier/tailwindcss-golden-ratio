@@ -16,6 +16,25 @@ This Tailwind plugin introduces a set of utilities based on the Golden Ratio, a 
 npm i -D tailwindcss-golden-ratio
 ```
 
+*tailwind.config.js*
+```js
+module.exports = {
+  // ...
+
+  theme: {
+    // ...
+
+    goldenRatio: {
+      // Custom configuration @see: https://github.com/truefrontier/tailwindcss-golden-ratio/tree/master#how-to-customize
+    },
+  },
+
+  plugins: [
+    require('tailwindcss-golden-ratio'), 
+  ],
+}
+```
+
 ### How to Use
 
 The plugin generates utility classes for the following Tailwind properties:
