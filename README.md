@@ -57,12 +57,12 @@ Each property has utility classes for the 11 main Golden Ratio values, as well a
 
 Any number lower will lessen this base unit by a factor of 1.61803398875 (the Golden Ratio). Numbers 7-11 increase this base unit by a factor of 1.618...
 
-`mt-gr-5` => `margin-top: var(--golden-ratio-5)` => `margin-top: 0.927051rem` (1.5 / 1.61803)
-`mt-gr-4` => `margin-top: var(--golden-ratio-4)` => `margin-top: 0.572949rem` (1.5 / 1.61803 / 1.61803)
+`mt-gr-5` => `margin-top: var(--golden-ratio-5)` => `margin-top: 0.927051rem` (1.5 / 1.61803)  
+`mt-gr-4` => `margin-top: var(--golden-ratio-4)` => `margin-top: 0.572949rem` (1.5 / 1.61803 / 1.61803)  
 ...
 
-`mt-gr-7` => `margin-top: var(--golden-ratio-7)` => `margin-top: 2.42705rem` (1.5 * 1.61803)
-`mt-gr-8` => `margin-top: var(--golden-ratio-8)` => `margin-top: 3.92705rem` (1.5 * 1.61803 * 1.61803)
+`mt-gr-7` => `margin-top: var(--golden-ratio-7)` => `margin-top: 2.42705rem` (1.5 * 1.61803)  
+`mt-gr-8` => `margin-top: var(--golden-ratio-8)` => `margin-top: 3.92705rem` (1.5 * 1.61803 * 1.61803)  
 ...
 
 
@@ -79,11 +79,11 @@ By default the px value will be rounded, but you can change that under [customiz
 #### Aspect Ratio
 For aspect ratio we set `aspect-gr-6` as the base. So it has `1 / 1` (or a square) `aspect-ratio` value. 
 
-Anything under 6 will become portrait (smaller width):
-`aspect-gr-5` => `aspect-ratio: 0.618034 / 1` 
+Anything under 6 will become portrait (smaller width):  
+`aspect-gr-5` => `aspect-ratio: 0.618034 / 1`  
 
-Anything over 6 will become landscape (larger width):
-`aspect-gr-7` => `aspect-ratio: 1.618034 / 1` 
+Anything over 6 will become landscape (larger width):  
+`aspect-gr-7` => `aspect-ratio: 1.618034 / 1`   
 
 
 ### How to Customize
