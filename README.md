@@ -1,6 +1,6 @@
 # tailwindcss-golden-ratio
 
-[https://goldenratio.app](https://goldenratio.app) built to help devs create better designs by _*[TRUE FRONTIER](https://truefrontierapps.com)*_
+[https://goldenratio.app](https://goldenratio.app) — built to help devs create better designs by _*[TRUE FRONTIER](https://truefrontierapps.com)*_
 
 This Tailwind plugin introduces a set of utilities based on the Golden Ratio, a mathematical constant that occurs frequently in nature and is believed to be aesthetically pleasing. The plugin aims to simplify and beautify spacing conventions in Tailwind CSS by providing a consistent and visually appealing set of spacing values.
 
