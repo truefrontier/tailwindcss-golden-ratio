@@ -201,122 +201,122 @@ module.exports = plugin(
           return aspectRatio;
         },
 
-        backgroundSize: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // backgroundSize: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        borderSpacing: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // borderSpacing: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        borderRadius: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // borderRadius: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        borderWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // borderWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        divideWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // divideWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        fontSize: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // fontSize: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        gap: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // gap: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        height: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // height: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        inset: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // inset: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        lineHeight: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // lineHeight: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        margin: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // margin: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        maxHeight: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // maxHeight: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        maxWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // maxWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        minHeight: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // minHeight: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        minWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // minWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        outlineOffset: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // outlineOffset: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        outlineWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // outlineWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        padding: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // padding: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        ringOffsetWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // ringOffsetWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        ringWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // ringWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
         scale: (theme) => {
           const golden = getGolden(theme);
           return golden.scale;
         },
 
-        scrollMargin: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // scrollMargin: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        scrollPadding: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // scrollPadding: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        space: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // space: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        strokeWidth: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // strokeWidth: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        translate: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // translate: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        textIndent: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // textIndent: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        textUnderlineOffset: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // textUnderlineOffset: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
 
-        width: (theme) => ({
-          ...theme('spacing'),
-        }),
+        // width: (theme) => ({
+        //   ...theme('spacing'),
+        // }),
       },
     },
   },
