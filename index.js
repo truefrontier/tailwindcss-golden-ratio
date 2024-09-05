@@ -237,9 +237,9 @@ module.exports = plugin(
         //   ...theme('spacing'),
         // }),
 
-        // lineHeight: (theme) => ({
-        //   ...theme('spacing'),
-        // }),
+        lineHeight: (theme) => ({
+          ...theme('spacing'),
+        }),
 
         // margin: (theme) => ({
         //   ...theme('spacing'),
