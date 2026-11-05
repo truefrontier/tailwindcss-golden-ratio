@@ -16,6 +16,10 @@ This Tailwind plugin introduces a set of utilities based on the Golden Ratio, a 
 npm i -D tailwindcss-golden-ratio
 ```
 
+Works with Tailwind CSS 3 and 4.
+
+#### Tailwind CSS v3
+
 *tailwind.config.js*
 ```js
 module.exports = {
@@ -31,6 +35,39 @@ module.exports = {
 
   plugins: [
     require('tailwindcss-golden-ratio'), 
+  ],
+}
+```
+
+The `--golden-ratio-*` CSS variables are added to the base layer, so keep `@tailwind base;` in your CSS. Without it, the utilities point at variables that don't exist. If you can't include the base layer, set `useCssVars: false` (see [customization](#how-to-customize)).
+
+#### Tailwind CSS v4
+
+Load the plugin from your CSS file:
+
+```css
+@import "tailwindcss";
+@plugin "tailwindcss-golden-ratio";
+```
+
+To customize it, put the `goldenRatio` options in a `tailwind.config.js` and load that file with `@config` in place of `@plugin`:
+
+```css
+@import "tailwindcss";
+@config "./tailwind.config.js";
+```
+
+*tailwind.config.js*
+```js
+module.exports = {
+  theme: {
+    goldenRatio: {
+      // Custom configuration @see: https://github.com/truefrontier/tailwindcss-golden-ratio/tree/master#how-to-customize
+    },
+  },
+
+  plugins: [
+    require('tailwindcss-golden-ratio'),
   ],
 }
 ```
@@ -107,7 +144,7 @@ Anything over 6 will become landscape (larger width):
 
 ### How to Customize
 
-This plugin is highly configurable, allowing you to customize the prefix, unit, rounding behavior, and more.
+This plugin is highly configurable, allowing you to customize the prefix, unit, rounding behavior, and more. On Tailwind CSS v4, load this config file with `@config` (see [Tailwind CSS v4](#tailwind-css-v4)).
 
 *tailwind.config.js*
 ```js
