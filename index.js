@@ -114,7 +114,7 @@ function getGolden(theme) {
 }
 
 module.exports = plugin(
-  function ({ addComponents, theme }) {
+  function ({ addBase, theme }) {
     const golden = getGolden(theme);
 
     if (golden.config.useCssVars) {
@@ -138,7 +138,9 @@ module.exports = plugin(
         rootVars[`--golden-ratio-fixed-double-${i}`] = golden.fixedBase[`grDouble${i}`];
       }
 
-      addComponents({
+      // addBase, not addComponents: Tailwind 4 treats components as utilities,
+      // which must be a single class, so it rejects ':root' there.
+      addBase({
         ':root': rootVars,
       });
     }

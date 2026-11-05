@@ -22,7 +22,7 @@
     "url": "https://github.com/truefrontier/tailwindcss-golden-ratio/issues"
   },
   "homepage": "https://github.com/truefrontier/tailwindcss-golden-ratio#readme",
-  "dependencies": {
-    "tailwindcss": "^3.3.2"
+  "peerDependencies": {
+    "tailwindcss": "^3.3.2 || ^4.0.0"
   }
 }
